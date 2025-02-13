@@ -233,5 +233,10 @@
     height: 40px;
     min-height: 40px;
   }
+  .ondebox{
+  /* transform: translate(0%, 100%); */
+  display: none;
+
+  }
 }
 
