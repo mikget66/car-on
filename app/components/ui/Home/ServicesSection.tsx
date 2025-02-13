@@ -57,7 +57,7 @@ const ServicesSection = () => {
         </div>
       </AnimateOnScroll>
       <div className="Container">
-        <div className="flex ">
+        <div className="flex flex-col md:flex-row">
           {services.map((service, index) => (
             <AnimateOnScroll
               key={service.name}

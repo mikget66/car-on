@@ -234,9 +234,21 @@
     min-height: 40px;
   }
   .ondebox{
-  transform: translate(0%, 200%);
+  top: 100vh;
+
+  transform: translate(0%, -50%);
   /* display: none; */
 
   }
 }
+.car-icon img {
+  width: 100px;
+  height: 29px;
+}
 
+@media (max-width: 768px) {
+  .car-icon img {
+    width: 50px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
