@@ -28,7 +28,7 @@ export default function ThemeSwitch() {
     return <FiSun className="font-extrabold md:text-3xl" onClick={() => setTheme("light")} />;
   }
 
-  if (resolvedTheme === "light") {
+  if (resolvedTheme === "light" ) {
     return <FiMoon className="font-extrabold md:text-3xl" onClick={() => setTheme("dark")} />;
   }
 }
