@@ -22,7 +22,7 @@ export const WorksSection = () => {
           </p>
         </AnimateOnScroll>
 
-        <div className="number-wrap Container flex xl:flex-row gap-10 flex-col">
+        <div className="lg:number-wrap Container flex xl:flex-row gap-10 flex-col">
           <AnimateOnScroll animation="translateY(0px)" delay={200}>
             <div className="flex flex-col items-center">
               <span
@@ -38,7 +38,7 @@ export const WorksSection = () => {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll animation="translateY(0px)" delay={400}>
-            <div className="flex flex-col items-center translate-y-14">
+            <div className="flex flex-col items-center xl:translate-y-14">
               <span
                 className={`w-20 h-20 rounded-full bg-brandColor flex justify-center items-center ${caveat.className} text-5xl`}
               >

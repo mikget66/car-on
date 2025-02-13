@@ -29,7 +29,7 @@ const Navbar = () => {
             <span className={`${caveat.className} text-brandColor`}>On.</span>
           </Link>
           <div>
-            <ul className="flex justify-start gap-3">
+            <ul className="hidden md:flex justify-start gap-3 ">
               {links.map((link) => (
                 <Link
                   href={link.href}

@@ -97,8 +97,7 @@
   text-transform: uppercase;
 }
 .dark-overlay {
-  background-color: #000;
-  opacity: 0.7;
+  border-image: fill 1 linear-gradient(to bottom, #2c2c2c, #1a1a1a);
 }
 .swiper-nav-btns {
   button {

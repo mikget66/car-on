@@ -47,20 +47,20 @@ const Main = () => {
   bg-CarImage bg-no-repeat bg-cover bg-center
   "
   >
-    <h1 className="text-8xl font-bold my-8">
+    <h1 className="text-6xl md:text-8xl font-bold my-8">
       Find Your
       <span className={`${caveat.className} text-brandColor text-span`}>
         Dream
       </span>
       Car.
     </h1>
-    <p className="mb-8 text-2xl">
+    <p className="mb-8 text-lg md:text-2xl m-1">
       {`You'll get comprehensive results based on the provided location.`}
     </p>
 
     <SearchForm />
 
-    <div className=" text-white flex flex-row gap-5">
+    <div className=" text-white flex flex-row gap-5 flex-wrap md:flex-nowrap justify-center">
       {carLinks.map((car) => (
         <a
           href="#"
@@ -72,7 +72,7 @@ const Main = () => {
             alt={car.text}
             width={100}
             height={29}
-            className="icon-svg  "
+            className="icon-svg"
           />
           {car.text}
         </a>

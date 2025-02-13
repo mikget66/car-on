@@ -10,8 +10,6 @@ export default {
     extend: {
       colors: {
         background: "rgba(var(--background))",
-        // background: "var(--background)",
-        // foreground: "var(--foreground)",
         brandColor: "rgba(var(--brandColor))",
         light:"rgba(var(--bglight))",
         textlight:"rgba(var(--text-second))",

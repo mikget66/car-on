@@ -27,7 +27,7 @@ const BrandsSection = () => {
   return (
     <section
       id="brands"
-      className="brands flex flex-col justify-center rounded-3xl bg-light py-10"
+      className="brands flex flex-col justify-center rounded-3xl bg-light m-5 py-10"
     >
       <AnimateOnScroll animation="translateY(-100px)">
         <div className="flex flex-col items-center my-11">

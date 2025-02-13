@@ -1,13 +1,19 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
-  animation?: string; // Optional animation type
-  delay?: number; // Optional delay in milliseconds
+  animation?: string;
+  delay?: number;
+  threshold?: number;
 }
 
-const AnimateOnScroll = ({ children, animation = 'translateY(-80px)', delay = 0 }: AnimateOnScrollProps) => {
+const AnimateOnScroll = ({
+  children,
+  animation = "translateY(-80px)",
+  delay = 0,
+  threshold = 0.8,
+}: AnimateOnScrollProps) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,14 +24,14 @@ const AnimateOnScroll = ({ children, animation = 'translateY(-80px)', delay = 0 
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
+            setTimeout(() => setIsVisible(true), delay); // Set timeout for delay
           } else if (entry.boundingClientRect.top > 0) {
             setIsVisible(false);
           }
         });
       },
       {
-        threshold: 0.8,
+        threshold: threshold,
       }
     );
 
@@ -38,12 +44,12 @@ const AnimateOnScroll = ({ children, animation = 'translateY(-80px)', delay = 0 
         observer.unobserve(element);
       }
     };
-  }, []);
+  }, [delay,threshold]);
 
   return (
     <div
       ref={elementRef}
-      className={`animate-on-scroll ${isVisible ? 'visible' : ''}`}
+      className={`animate-on-scroll ${isVisible ? "visible" : ""}`}
     >
       {children}
 
@@ -51,14 +57,13 @@ const AnimateOnScroll = ({ children, animation = 'translateY(-80px)', delay = 0 
         .animate-on-scroll {
           opacity: 0;
           transform: ${animation};
-          transition: opacity 500ms ${delay}ms ease, transform 500ms ease;
+          transition: opacity 500ms ease, transform 500ms ease;
         }
         .animate-on-scroll.visible {
           opacity: 1;
-          transform: translate(0);        
+          transform: translate(0);
         }
       `}</style>
-      <p className='hidden'>{delay}</p>
     </div>
   );
 };

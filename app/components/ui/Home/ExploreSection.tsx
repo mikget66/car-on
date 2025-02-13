@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Caveat } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  Pagination, A11y } from "swiper/modules";
+import { Pagination, A11y } from "swiper/modules";
 
 import { CiHeart } from "react-icons/ci";
 import { VscFlame } from "react-icons/vsc";
@@ -12,9 +12,9 @@ import { GiSpeedometer } from "react-icons/gi";
 import { GoArrowUpRight } from "react-icons/go";
 
 import "swiper/css";
-
 import "swiper/css/pagination";
 import SwiperButtons from "./SwiperButtons";
+import Image from "next/image";
 
 const caveat = Caveat({ subsets: ["latin"] });
 const cars = [
@@ -23,9 +23,10 @@ const cars = [
     carBrand: "Toyota",
     carModel: "Camry",
     price: 24000,
-    topSpeed: 130, // in mph
+    topSpeed: 130,
     fuelType: "Gasoline",
     transmission: "Automatic",
+    image: "/images/cars/Toyota Camry.jpeg", // Placeholder image
   },
   {
     year: 2019,
@@ -35,7 +36,8 @@ const cars = [
     topSpeed: 125,
     fuelType: "Gasoline",
     transmission: "Manual",
-    discountPercentage: 20, // Discount percentage
+    discountPercentage: 20,
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2021,
@@ -45,6 +47,7 @@ const cars = [
     topSpeed: 162,
     fuelType: "Electric",
     transmission: "Automatic",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2018,
@@ -54,6 +57,7 @@ const cars = [
     topSpeed: 120,
     fuelType: "Gasoline",
     transmission: "Automatic",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2022,
@@ -63,7 +67,8 @@ const cars = [
     topSpeed: 130,
     fuelType: "Gasoline",
     transmission: "Automatic",
-    discountPercentage: 10, // Discount percentage
+    discountPercentage: 10,
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2017,
@@ -73,6 +78,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Diesel",
     transmission: "CVT",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2020,
@@ -82,6 +88,7 @@ const cars = [
     topSpeed: 120,
     fuelType: "Gasoline",
     transmission: "Manual",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2021,
@@ -91,6 +98,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Gasoline",
     transmission: "Automatic",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2019,
@@ -100,6 +108,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Diesel",
     transmission: "Automatic",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
   {
     year: 2021,
@@ -109,6 +118,7 @@ const cars = [
     topSpeed: 140,
     fuelType: "Diesel",
     transmission: "Automatic",
+    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
   },
 ];
 const ExploreSection = () => {
@@ -116,18 +126,14 @@ const ExploreSection = () => {
     <section id="explore" className="rounded-3xl bg-light m-5 py-10">
       <div className="Container">
         <div className="my-10">
-          <h1
-            className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}
-          >
+          <h1 className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}>
             Explore
           </h1>
           <h1 className="text-6xl font-semibold">Explore All Cars</h1>
           <div className="flex justify-between">
             <p>
               Discover exciting categories.
-              <span className="text-brandColor">
-                Find what you’re looking for.
-              </span>
+              <span className="text-brandColor"> Find what you’re looking for.</span>
             </p>
             <Link href="/" className="text-brandColor">
               SEE ALL <GoArrowUpRight className="inline" />
@@ -135,34 +141,50 @@ const ExploreSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center ">
-          <div className="">
+        <div className="flex flex-col justify-center">
+          <div>
             <Swiper
-              modules={[ Pagination, A11y]}
+              modules={[Pagination, A11y]}
               spaceBetween={50}
-              slidesPerView={3}
-            //   pagination={{ clickable: true }}
+              breakpoints={{
+                // When window width is >= 640px
+                640: {
+                  slidesPerView: 2,
+                },
+                // When window width is >= 768px
+                768: {
+                  slidesPerView: 3,
+                },
+                // Default setting for screens less than 640px
+                0: {
+                  slidesPerView: 1,
+                },
+              }}
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
               {cars.map((car, index) => (
                 <SwiperSlide key={index}>
                   <div className="card bg-background rounded-2xl overflow-hidden">
-                    <div className="shine ">
+                    <div className="shine w-[540px] h-[384px]">
                       <span></span>
                       <div className="absolute top-5 right-5 text-brandColor text-2xl bg-light rounded-full p-2 z-10">
-                        {<CiHeart />}
+                        <CiHeart />
                       </div>
-                      {car?.discountPercentage && (
+                      {car.discountPercentage && (
                         <div className="descount absolute top-5 left-0 text-white flex items-center p-2 z-10">
                           <VscFlame className="inline" />
                           {car.discountPercentage}% off
                         </div>
                       )}
-                      <img
-                        className="dark-overlay"
-                        src="/images/cardImage.jpeg"
-                        alt=""
+
+                      <Image
+                        className="object-center"
+                        width={540}
+                        height={384}
+                        src={car.image}
+                        alt={car.carBrand}
+                        style={{ width: '100%', height: 'auto' }}
                       />
                     </div>
                     <div className="p-4">
@@ -177,18 +199,22 @@ const ExploreSection = () => {
                       </div>
                       <hr className="border-textlight opacity-85" />
                       <ul>
-                        <li><GiSpeedometer /> {car.topSpeed} MILES</li>
-                        <li><BsFuelPump /> {car.fuelType}</li>
-                        <li><TbSwitch3 /> {car.transmission}</li>
+                        <li>
+                          <GiSpeedometer /> {car.topSpeed} MILES
+                        </li>
+                        <li>
+                          <BsFuelPump /> {car.fuelType}
+                        </li>
+                        <li>
+                          <TbSwitch3 /> {car.transmission}
+                        </li>
                       </ul>
                       <p>Free Test Drive today at Noakhali, Bangladesh</p>
                     </div>
                   </div>
                 </SwiperSlide>
               ))}
-              <SwiperButtons
-                // slides= {cars.length}
-              />
+              <SwiperButtons />
             </Swiper>
           </div>
         </div>
