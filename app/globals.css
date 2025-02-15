@@ -176,22 +176,20 @@
   background-position: 50% 50px;
   background-size: 73%;
 }
-
-
 .Container {
-  width: 1450px;
-
-  /* Default width for child elements on larger screens */
+  max-width: 1450px; /* Replaces fixed width with max-width */
+  width: 100%; /* Ensures it takes full width up to max-width */
   margin: auto;
 }
 
-
-/* Media query for mobile screens */
+/* Media query for screens up to 1400px */
 @media (max-width: 1400px) {
-  .Container div {
-    max-width: 1200px;
+  .Container {
+    max-width: 1200px; /* Correctly targets the container, not its children */
   }
 }
+
+/* Media query for screens up to 1220px */
 @media (max-width: 1220px) {
   .Container {
     max-width: 990px;
@@ -199,23 +197,24 @@
   .number-wrap {
     background-image: none;
     background-repeat: no-repeat;
-    /* background-size: 100% auto; */
     background-position: 50% 50px;
     background-size: 73%;
   }
 }
+
+/* Media query for screens up to 992px */
 @media (max-width: 992px) {
   .Container {
     max-width: 760px;
   }
-
 }
+
+/* Media query for mobile screens (up to 768px) */
 @media (max-width: 768px) {
   .Container {
-    width: 80%;
+    max-width: 90%; /* Uses max-width instead of width for consistency */
   }
 }
-
 .onde {
   position: relative;
   width: 100%;

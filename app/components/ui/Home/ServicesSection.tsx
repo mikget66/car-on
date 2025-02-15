@@ -246,7 +246,7 @@ const ServicesSection = () => {
             ))}
           </div>
 <div className="relative w-0 h-0">
-<div className="absolute bottom-[100px] w-[400px] aspect-square bg-brandColor  -z-0 blur-[200px] opacity-45"></div>
+<div className="absolute bottom-[100px] max-w-[400px] aspect-square bg-brandColor  -z-0 blur-[200px] opacity-45"></div>
 {/*     z-index: -1;
     width: 300px;
     height: 300px;
