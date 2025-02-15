@@ -42,7 +42,8 @@ const Main = () => {
     <main
       className="
   main
-  min-h-screen
+  h-screen
+  max-w-screen
   flex flex-col justify-center items-center  
   bg-CarImage bg-no-repeat bg-cover bg-center
   "

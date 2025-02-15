@@ -2,7 +2,7 @@ import React from "react";
 
 function Wave() {
   return (
-    <div className="ondebox w-full">
+    <div className="ondebox min-w-full">
       <svg
         className="onde"
         xmlns="http://www.w3.org/2000/svg"

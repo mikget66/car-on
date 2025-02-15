@@ -24,14 +24,14 @@ export const WorksSection = () => {
 
         <div className="number-wrap Container flex xl:flex-row gap-10 flex-col">
           <AnimateOnScroll animation="translateY(0px)" delay={200}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center flex-wrap w-full">
               <span
                 className={`w-20 h-20 rounded-full bg-brandColor flex justify-center items-center ${caveat.className} text-5xl`}
               >
                 1
               </span>
               <h4 className="text-3xl">Find Your Car</h4>
-              <p>
+              <p className="">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nostrum, amet?
               </p>

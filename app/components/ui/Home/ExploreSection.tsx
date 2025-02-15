@@ -123,8 +123,8 @@ const cars = [
 ];
 const ExploreSection = () => {
   return (
-    <section id="explore" className="rounded-3xl bg-light m-5 py-10">
-      <div className="Container">
+    <section id="explore" className="rounded-3xl bg-light lg:m-5 py-10">
+      <div className="Container flex flex-col max-w-full">
         <div className="my-10">
           <h1 className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}>
             Explore
@@ -166,7 +166,7 @@ const ExploreSection = () => {
               {cars.map((car, index) => (
                 <SwiperSlide key={index}>
                   <div className="card bg-background rounded-2xl overflow-hidden">
-                    <div className="shine w-[540px] h-[384px]">
+                    <div className="shine ">
                       <span></span>
                       <div className="absolute top-5 right-5 text-brandColor text-2xl bg-light rounded-full p-2 z-10">
                         <CiHeart />
@@ -180,10 +180,10 @@ const ExploreSection = () => {
 
                       <Image
                         className="object-center"
-                        width={540}
-                        height={384}
                         src={car.image}
                         alt={car.carBrand}
+                        width={540}
+                        height={384}
                         style={{ width: '100%', height: 'auto' }}
                       />
                     </div>

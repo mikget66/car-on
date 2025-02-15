@@ -21,9 +21,9 @@ const links = [
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors m-4 py-2 z-50 ">
-      <div className="Container m-10 py-3 w-full">
-        <nav className="flex justify-between items-center">
+    <div className="fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors m-4  z-50 ">
+      <div className="Container w-full">
+        <nav className="flex justify-between items-center my-6">
           <Link href="/" className="logo text-3xl md:text-5xl font-semibold cursor-pointer">
             Car
             <span className={`${caveat.className} text-brandColor`}>On.</span>

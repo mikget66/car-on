@@ -27,7 +27,7 @@ const BrandsSection = () => {
   return (
     <section
       id="brands"
-      className="brands flex flex-col justify-center rounded-3xl bg-light m-5 py-10"
+      className="brands flex flex-col justify-center rounded-3xl bg-light lg:m-5 py-10"
     >
       <AnimateOnScroll animation="translateY(-100px)">
         <div className="flex flex-col items-center my-11">
@@ -48,28 +48,31 @@ const BrandsSection = () => {
           </p>
         </div>
       </AnimateOnScroll>
-      <div className="Container grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-3">
+      <div className="Container ">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-3">
+
         {brands.map((brand) => (
           <div
-            key={brand.carBrand}
-            className="flex flex-col justify-center items-center bg-background hover:-translate-y-1 gap-2 p-2"
+          key={brand.carBrand}
+          className="flex flex-col justify-center items-center bg-background hover:-translate-y-1 gap-2 p-2"
           >
             <Image
             className="brand-image"
-              src={brand.image}
-              alt={brand.carBrand}
-              width={50}
-              height={50}
-          
+            src={brand.image}
+            alt={brand.carBrand}
+            width={50}
+            height={50}
+            
             />
             <p>{brand.carBrand}</p>
             <span
               className={`${caveat.className} bg-light py-1 px-2 rounded-xl`}
-            >
+              >
               {brand.total}
             </span>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

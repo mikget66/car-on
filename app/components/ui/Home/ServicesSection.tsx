@@ -91,7 +91,7 @@ const carArticles = [
 ];
 const ServicesSection = () => {
   return (
-    <section id="services" className="rounded-3xl m-5 py-10">
+    <section id="services" className="rounded-3xl lg:m-5 py-10">
       <AnimateOnScroll animation="translateY(-100px)">
         <div className="flex flex-col items-center my-11">
           <h1
@@ -109,7 +109,7 @@ const ServicesSection = () => {
         </div>
       </AnimateOnScroll>
       <div className="Container">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row ">
           {services.map((service, index) => (
             <AnimateOnScroll
               key={service.name}
@@ -166,8 +166,8 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-5 gap-3">
-          <div className="sticky top-[150px] h-fit col-span-2">
+        <div className="grid grid-cols-1  lg:grid-cols-5 gap-3">
+          <div className="lg:sticky lg:top-[150px] h-fit col-span-2">
             <AnimateOnScroll>
               <h2
                 className={`${caveat.className} text-brandColor font-semibold text-5xl`}
@@ -195,7 +195,7 @@ const ServicesSection = () => {
           <div className="col-span-3 flex flex-col gap-5 z-10">
             {carArticles.map((article) => (
               <article
-                className=" bg-light p-8 rounded-xl  grid grid-cols-2  gap-4 min-h-[400px]"
+                className=" bg-light p-8 rounded-xl  grid grid-cols-1 lg:grid-cols-2  gap-4 min-h-[400px]"
                 key={article.title}
               >
                 <div
