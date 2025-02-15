@@ -22,7 +22,7 @@ export const WorksSection = () => {
           </p>
         </AnimateOnScroll>
 
-        <div className="lg:number-wrap Container flex xl:flex-row gap-10 flex-col">
+        <div className="number-wrap Container flex xl:flex-row gap-10 flex-col">
           <AnimateOnScroll animation="translateY(0px)" delay={200}>
             <div className="flex flex-col items-center">
               <span

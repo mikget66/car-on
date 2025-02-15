@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "rgba(var(--background))",
         brandColor: "rgba(var(--brandColor))",
+        invert: "rgba(var(--text))",
         light:"rgba(var(--bglight))",
         textlight:"rgba(var(--text-second))",
       },

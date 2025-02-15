@@ -8,32 +8,32 @@ const carLinks = [
   {
     href: "#",
     text: "Sedan",
-    icon: "/svgs/car-1.svg",
+    icon: "/svgs/cars/car-1.svg",
   },
   {
     href: "#",
     text: "SUV",
-    icon: "/svgs/car-2.svg",
+    icon: "/svgs/cars/car-2.svg",
   },
   {
     href: "#",
     text: "Coupe",
-    icon: "/svgs/car-3.svg",
+    icon: "/svgs/cars/car-3.svg",
   },
   {
     href: "#",
     text: "Hatchback",
-    icon: "/svgs/car-4.svg",
+    icon: "/svgs/cars/car-4.svg",
   },
   {
     href: "#",
     text: "Convertible",
-    icon: "/svgs/car-5.svg",
+    icon: "/svgs/cars/car-5.svg",
   },
   {
     href: "#",
     text: "Wagon",
-    icon: "/svgs/car-6.svg",
+    icon: "/svgs/cars/car-6.svg",
   },
 ];
 

@@ -11,8 +11,8 @@ interface AnimateOnScrollProps {
 const AnimateOnScroll = ({
   children,
   animation = "translateY(-80px)",
-  delay = 0,
-  threshold = 0.8,
+  delay = 300,
+  threshold = 0.0,
 }: AnimateOnScrollProps) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
