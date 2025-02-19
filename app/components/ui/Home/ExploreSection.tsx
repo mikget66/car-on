@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Caveat } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
@@ -13,8 +14,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import SwiperButtons from "./SwiperButtons";
-import Image from "next/image";
+import {SwiperButtons} from "./SwiperButtons";
 
 const caveat = Caveat({ subsets: ["latin"] });
 const cars = [
@@ -26,7 +26,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Gasoline",
     transmission: "Automatic",
-    image: "/images/cars/Toyota Camry.jpeg", // Placeholder image
+    image: "/images/cars/Toyota Camry.jpeg",
   },
   {
     year: 2019,
@@ -37,7 +37,7 @@ const cars = [
     fuelType: "Gasoline",
     transmission: "Manual",
     discountPercentage: 20,
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/honda-civic.webp",
   },
   {
     year: 2021,
@@ -47,7 +47,7 @@ const cars = [
     topSpeed: 162,
     fuelType: "Electric",
     transmission: "Automatic",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/Tesla Model 3 .webp",
   },
   {
     year: 2018,
@@ -57,7 +57,7 @@ const cars = [
     topSpeed: 120,
     fuelType: "Gasoline",
     transmission: "Automatic",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2018-ford-f-150.jpg",
   },
   {
     year: 2022,
@@ -68,7 +68,7 @@ const cars = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     discountPercentage: 10,
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2022-chevrolet-malibu.jpg",
   },
   {
     year: 2017,
@@ -78,7 +78,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Diesel",
     transmission: "CVT",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2017-nissan-altima.webp",
   },
   {
     year: 2020,
@@ -88,7 +88,7 @@ const cars = [
     topSpeed: 120,
     fuelType: "Gasoline",
     transmission: "Manual",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2020-hyunadi-alentra.jpg",
   },
   {
     year: 2021,
@@ -98,7 +98,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Gasoline",
     transmission: "Automatic",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2021-kia-soul.jpg",
   },
   {
     year: 2019,
@@ -108,7 +108,7 @@ const cars = [
     topSpeed: 130,
     fuelType: "Diesel",
     transmission: "Automatic",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2019-subaru-outback.jpg",
   },
   {
     year: 2021,
@@ -118,7 +118,7 @@ const cars = [
     topSpeed: 140,
     fuelType: "Diesel",
     transmission: "Automatic",
-    image: "/images/cars/website-banner-CRL-FL.png", // Placeholder image
+    image: "/images/cars/2021-volkswagen-jetta.jpg",
   },
 ];
 const ExploreSection = () => {
@@ -126,14 +126,19 @@ const ExploreSection = () => {
     <section id="explore" className="rounded-3xl bg-light lg:m-5 py-10">
       <div className="Container flex flex-col max-w-full">
         <div className="my-10">
-          <h1 className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}>
+          <h1
+            className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}
+          >
             Explore
           </h1>
           <h1 className="text-6xl font-semibold">Explore All Cars</h1>
           <div className="flex justify-between">
             <p>
               Discover exciting categories.
-              <span className="text-brandColor"> Find what you’re looking for.</span>
+              <span className="text-brandColor">
+                {" "}
+                Find what you’re looking for.
+              </span>
             </p>
             <Link href="/" className="text-brandColor">
               SEE ALL <GoArrowUpRight className="inline" />
@@ -152,7 +157,7 @@ const ExploreSection = () => {
                   slidesPerView: 2,
                 },
                 // When window width is >= 768px
-                768: {
+                1668: {
                   slidesPerView: 3,
                 },
                 // Default setting for screens less than 640px
@@ -166,7 +171,9 @@ const ExploreSection = () => {
               {cars.map((car, index) => (
                 <SwiperSlide key={index}>
                   <div className="card bg-background rounded-2xl overflow-hidden">
-                    <div className="shine ">
+                    <div className="shine h-80 overflow-hidden">
+                      {" "}
+                      {/* Fixed height container */}
                       <span></span>
                       <div className="absolute top-5 right-5 text-brandColor text-2xl bg-light rounded-full p-2 z-10">
                         <CiHeart />
@@ -177,14 +184,13 @@ const ExploreSection = () => {
                           {car.discountPercentage}% off
                         </div>
                       )}
-
                       <Image
-                        className="object-center"
+                        className="object-cover w-full h-full" // Add these classes
                         src={car.image}
                         alt={car.carBrand}
                         width={540}
-                        height={384}
-                        style={{ width: '100%', height: 'auto' }}
+                        height={344}
+                        style={{ width: 'auto', height: '100%' }}
                       />
                     </div>
                     <div className="p-4">

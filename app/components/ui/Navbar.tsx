@@ -1,8 +1,14 @@
-import { Caveat } from "next/font/google";
-import ThemeSwitch from "../components/ThemeSwitch";
+"use client"
 import Link from "next/link";
+import { Caveat } from "next/font/google";
+import ThemeSwitch from "../ui/ThemeSwitch";
+import { IoPersonAdd } from "react-icons/io5";
+import { usePathname } from "next/navigation";
+
 
 const caveat = Caveat({ subsets: ["latin"] });
+
+
 
 const links = [
   {
@@ -20,8 +26,12 @@ const links = [
 ];
 
 const Navbar = () => {
+  const pathName = usePathname();
+  console.log(pathName)
   return (
-    <div className="fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors m-4  z-50 ">
+    <div className={`fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors z-50 ${
+      pathName !== "/" ? "m-0 bg-background sticky  rounded-none" : ""
+}`}>
       <div className="Container w-full">
         <nav className="flex justify-between items-center my-6">
           <Link href="/" className="logo text-3xl md:text-5xl font-semibold cursor-pointer">
@@ -42,6 +52,9 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="controls">
+            <Link href={"/signin"}>
+          <IoPersonAdd />
+            </Link>
             <ThemeSwitch />
           </div>
         </nav>

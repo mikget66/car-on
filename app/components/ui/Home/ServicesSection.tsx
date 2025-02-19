@@ -1,8 +1,9 @@
 import { Caveat } from "next/font/google";
-import AnimateOnScroll from "../../AnimateOnScroll";
+import AnimateOnScroll from "../AnimateOnScroll";
 import Link from "next/link";
 import Image from "next/image";
 import cursiveArrow from "../../../../public/svgs/cursiveArrow.svg";
+import SectionHeading from "../SectionHeading";
 
 import { GoArrowUpRight } from "react-icons/go";
 
@@ -92,22 +93,13 @@ const carArticles = [
 const ServicesSection = () => {
   return (
     <section id="services" className="rounded-3xl lg:m-5 py-10">
-      <AnimateOnScroll animation="translateY(-100px)">
-        <div className="flex flex-col items-center my-11">
-          <h1
-            className={`${caveat.className} text-brandColor font-semibold text-5xl`}
-          >
-            Services
-          </h1>
-          <h2 className="text-6xl font-semibold">CarOn Services</h2>
-          <p>
-            Discover exciting categories.
-            <span className="text-brandColor">
-              Find what you’re looking for.
-            </span>
-          </p>
-        </div>
-      </AnimateOnScroll>
+            <SectionHeading
+        title="Services"
+        subtitle="CarOn Services"
+        description="Discover exciting categories."
+        highlight="Discover exciting categories. Find what you’re looking for."
+      />
+
       <div className="Container">
         <div className="flex flex-col md:flex-row ">
           {services.map((service, index) => (
@@ -222,43 +214,12 @@ const ServicesSection = () => {
                     />
                   </div>
                 </div>
-                {/* <div className="flex flex-col justify-start items-start">
-                <div>
-                <span className="border-r-2 border-textlight-50 pr-2 mr-2 text-sm ">
-                    {article.date}
-                  </span>
-                  <span className="text-brandColor bg-white p-2 rounded-lg">
-                    {article.category}
-                  </span>
-                </div>
-                <h3>{article.title}</h3>
-                <p className="w-4/6">{article.description}</p>
-                </div>
-                <div className="rounded-2xl w-[300px] aspect-square relative overflow-hidden flex-grow">
-                  <Image
-                    src={article.image}
-                    fill
-                    alt={article.title}
-                    className="object-cover object-center"
-                  />
-                </div> */}
               </article>
             ))}
           </div>
-<div className="relative w-0 h-0">
-<div className="absolute bottom-[100px] max-w-[400px] aspect-square bg-brandColor  -z-0 blur-[200px] opacity-45"></div>
-{/*     z-index: -1;
-    width: 300px;
-    height: 300px;
-    -webkit-filter: blur(200px);
-    filter: blur(200px);
-    top: auto;
-    bottom: 10%;
-    left: 5%;
-    right: auto;
-    --bs-bg-opacity: .54; */}
-
-</div>
+          <div className="relative w-0 h-0">
+            <div className="absolute bottom-[100px] w-[400px] max-w-60 aspect-square bg-brandColor  -z-0 blur-[350px] opacity-100"></div>
+          </div>
         </div>
       </div>
     </section>

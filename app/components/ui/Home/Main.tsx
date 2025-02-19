@@ -1,4 +1,4 @@
-import SearchForm from "../../SearchForm";
+import SearchForm from "../SearchForm";
 import { Caveat } from "next/font/google";
 import Image from "next/image";
 import Wave from "../Wave";

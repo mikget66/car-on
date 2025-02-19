@@ -4,8 +4,9 @@
 
 :root {
   --brandColor: 248, 69, 37;
+  --bgdark: 20, 25, 27;
   --text-second: 145, 152, 158;
-  
+
   --onda-fill-1: rgba(var(--background), 0.6);
   --onda-fill-2: rgba(var(--background), 0.4);
   --onda-fill-3: rgba(var(--background), 0.2);
@@ -17,17 +18,33 @@
   fill: rgba(var(--brandColor), 1); /* or any color you like */
 }
 
-
-
 .dark {
   --background: 30, 36, 45;
-  --bglight: 25, 30, 37;
-  --text:255,255, 255,;
-  
-  
+  --bglight: 20, 25, 27;
+  --text: 255, 255, 255;
+
   background: rgba(var(--background));
   .brand-image {
-  fill: rgba(var(--brandColor), 0.7); /* Or a darker color */
+    fill: rgba(var(--brandColor), 0.7); /* Or a darker color */
+  }
+  .btn-dark {
+    background-color: #212529;
+    border: #212529;
+    color: #fff;
+    &:hover {
+      background-color: #0e0e0e;
+      border: #0e0e0e;
+    }
+  }
+  .btn-light {
+    background-color: #12161c;
+    border: #12161c;
+    color: #fff;
+    &:hover {
+      background-color: #f7edeb;
+      border: #f7edeb;
+      color: #12161c;
+    }
   }
 
   .switch-colors {
@@ -43,17 +60,35 @@
 .light {
   --background: 255, 255, 255;
   --bglight: 248, 244, 243;
-  --text:0,0, 0,;
-
+  --text: 0, 0, 0;
 
   background: rgba(var(--background));
+
+  .btn-dark {
+    background-color: #212529;
+    border: #212529;
+    color: #fff;
+    &:hover {
+      background-color: #0e0e0e;
+      border: #0e0e0e;
+    }
+  }
+  .btn-light {
+    background-color: #f8f4f3;
+    border: #f8f4f3;
+    color: #12161c;
+    &:hover {
+      background-color: #f7edeb;
+      border: #f7edeb;
+    }
+  }
+
 
   .switch-colors {
     animation: fixedNav-light linear forwards;
     animation-timeline: view();
     animation-range-start: 100vh;
   }
-
 }
 
 .brand-image {
@@ -63,6 +98,22 @@
 .drop {
   position: relative;
   animation: drop 1s forwards; /* Change duration as needed */
+}
+#Testimonial .swiper-button {
+  .swiper-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure buttons are above slides */
+  }
+
+  .swiper-button-left {
+    left: 0; /* Align to the left */
+  }
+
+  .swiper-button-right {
+    right: 0; /* Align to the right */
+  }
 }
 .card {
   ul,
@@ -103,7 +154,7 @@
   position: absolute;
   top: 0;
   left: -75%;
-  transform: skewX(-25deg); 
+  transform: skewX(-25deg);
 }
 
 .descount {
@@ -122,7 +173,7 @@
     border: 1px solid rgb(145, 152, 158);
     border-radius: 50%;
     font-size: 1.2rem;
-    &:hover{
+    &:hover {
       background-color: rgb(var(--brandColor));
       border: 1px solid rgb(var(--brandColor));
     }
@@ -166,8 +217,14 @@
   background-size: 100% auto;
 }
 
-#services{
-  background: linear-gradient(180deg, rgb(var(--bglight)) 0%, rgb(var(--bglight)) 700px, rgb(var(--background)) 900px, rgb(var(--background))100%);
+#services {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--bglight)) 0%,
+    rgb(var(--bglight)) 700px,
+    rgb(var(--background)) 900px,
+    rgb(var(--background)) 100%
+  );
 }
 .number-wrap {
   background-image: url("/svgs/number-wrap.svg");
@@ -180,6 +237,15 @@
   max-width: 1450px; /* Replaces fixed width with max-width */
   width: 100%; /* Ensures it takes full width up to max-width */
   margin: auto;
+}
+.controls {
+  display: flex;
+  font-size: 2rem;
+  gap: 1rem;
+  > * {
+    display: inline;
+    cursor: pointer;
+  }
 }
 
 /* Media query for screens up to 1400px */
@@ -223,6 +289,44 @@
   min-height: 100px;
   max-height: 150px;
 }
+footer div.Flex,
+#login div.Flex {
+  display: flex;
+}
+#login {
+  .signin-btn ,
+  .loginform > .input{
+    display: block;
+    text-align: left;
+    padding: 18px 30px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: all 200ms ease-in;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &:first-child{
+      display: inline;
+    font-size: 1.2rem;
+
+    }
+    
+  }
+
+}
+.socila-list {
+  display: flex;
+  gap: 0.5rem;
+  li {
+    font-size: 2rem;
+    display: inline;
+    background-color: rgba(var(--text-second), 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 500ms ease;
+  }
+}
 
 /* Animation */
 .ondebox {
@@ -265,12 +369,11 @@
     height: 40px;
     min-height: 40px;
   }
-  .ondebox{
-  top: 100vh;
+  .ondebox {
+    top: 100vh;
 
-  transform: translate(0%, -50%);
-  /* display: none; */
-
+    transform: translate(0%, -50%);
+    /* display: none; */
   }
 }
 .car-icon img {
@@ -285,9 +388,13 @@
   }
 }
 
-
-.electric-cars{
-  background-image:linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0) 100%), url("/images/mercedesEQ1.jpg");
+.electric-cars {
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.7),
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("/images/background/mercedesEQ1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -1,6 +1,6 @@
 import { Caveat } from "next/font/google";
 import Image from "next/image";
-import AnimateOnScroll from "../../AnimateOnScroll";
+import SectionHeading from "../SectionHeading";
 
 const caveat = Caveat({ subsets: ["latin"] });
 
@@ -29,49 +29,36 @@ const BrandsSection = () => {
       id="brands"
       className="brands flex flex-col justify-center rounded-3xl bg-light lg:m-5 py-10"
     >
-      <AnimateOnScroll animation="translateY(-100px)">
-        <div className="flex flex-col items-center my-11">
-          <h1
-            className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}
-          >
-            Brands
-          </h1>
-          <h2 className="text-6xl font-semibold">
-            Prices, Specs & Features of <br />
-            Popular Brands in ListOn
-          </h2>
-          <p>
-            Discover exciting categories.{" "}
-            <span className="text-brandColor">
-              Find what you’re looking for.
-            </span>
-          </p>
-        </div>
-      </AnimateOnScroll>
+      <SectionHeading
+        title="Brands"
+        subtitle="Prices, Specs & Features of
+            Popular Brands in ListOn"
+        description="Discover exciting categories."
+        highlight="Discover exciting categories. Find what you’re looking for."
+      />
+
       <div className="Container ">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-3">
-
-        {brands.map((brand) => (
-          <div
-          key={brand.carBrand}
-          className="flex flex-col justify-center items-center bg-background hover:-translate-y-1 gap-2 p-2"
-          >
-            <Image
-            className="brand-image"
-            src={brand.image}
-            alt={brand.carBrand}
-            width={50}
-            height={50}
-            
-            />
-            <p>{brand.carBrand}</p>
-            <span
-              className={`${caveat.className} bg-light py-1 px-2 rounded-xl`}
+          {brands.map((brand) => (
+            <div
+              key={brand.carBrand}
+              className="flex flex-col justify-center items-center bg-background hover:-translate-y-1 gap-2 p-2"
+            >
+              <Image
+                className="brand-image"
+                src={brand.image}
+                alt={brand.carBrand}
+                width={50}
+                height={50}
+              />
+              <p>{brand.carBrand}</p>
+              <span
+                className={`${caveat.className} bg-light py-1 px-2 rounded-xl`}
               >
-              {brand.total}
-            </span>
-          </div>
-        ))}
+                {brand.total}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

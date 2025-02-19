@@ -1,5 +1,7 @@
 import { Caveat } from "next/font/google";
-import AnimateOnScroll from "../../AnimateOnScroll";
+import SectionHeading from "../SectionHeading";
+import AnimateOnScroll from "../AnimateOnScroll";
+
 
 const caveat = Caveat({ subsets: ["latin"] });
 
@@ -7,20 +9,12 @@ export const WorksSection = () => {
   return (
     <>
       <section id="works" className="flex flex-col items-center my-24">
-        <AnimateOnScroll animation="translateY(-100px)" >
-          <h1
-            className={`${caveat.className} text-brandColor font-semibold drop text-5xl`}
-          >
-            Works
-          </h1>
-          <h1 className="text-6xl font-semibold">How It Works</h1>
-          <p>
-            Discover exciting categories.
-            <span className="text-brandColor">
-              Find what you’re looking for.
-            </span>
-          </p>
-        </AnimateOnScroll>
+        <SectionHeading
+          title="Works"
+          subtitle="ow It Works"
+          description="Discover exciting categories."
+          highlight="Discover exciting categories. Find what you’re looking for."
+        />
 
         <div className="number-wrap Container flex xl:flex-row gap-10 flex-col">
           <AnimateOnScroll animation="translateY(0px)" delay={200}>
