@@ -20,7 +20,7 @@ const Footer = () => {
       <div className="Container py-4">
         <div className="bg-brandColor rounded-2xl Flex  flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0">
           <Image
-            src={"/images/phone-mpckup.png"}
+            src={"/images/background/phone-mpckup.png"}
             width={300}
             height={300}
             alt=""
@@ -28,7 +28,7 @@ const Footer = () => {
           />
           <div className="">
             <p className="text-3xl font-medium">Download Our App</p>
-            <p className="w-[400px] text-lg font-normal">
+            <p className="max-w-[400px] text-lg font-normal">
               It is a long established fact that a reader will be distracted by
               the readable content.
             </p>
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex-col lg:flex-row flex items-start justify-start py-6 border-y-2 border-gray-700 my-10 gap-6 ">
+        <div className=" flex-col lg:flex-row flex items-start justify-start py-6 border-y-2 border-gray-700 lg:my-10 gap-6 ">
           <div className=" flex-1 flex flex-col gap-11">
             <h3 className="text-2xl font-bold">Get In Touch</h3>
             <p>
@@ -130,7 +130,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className=" flex justify-between items-center py-4">
+        <div className=" flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center py-4">
           <div className="flex items-center">
             <Link
               href="/"
@@ -144,7 +144,7 @@ const Footer = () => {
               © 2022 ListOn - All Rights Reserved- All Rights Reserved
             </p>
           </div>
-          <ul className="flex justify-between items-center gap-2">
+          <ul className="flex lg:justify-between items-center gap-2">
             <li>
               <a href="">Privacy</a>
             </li>

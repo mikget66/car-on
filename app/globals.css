@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  input {
+    background: none;
+  }
+}
+
 :root {
   --brandColor: 248, 69, 37;
   --bgdark: 20, 25, 27;
@@ -82,7 +88,6 @@
       border: #f7edeb;
     }
   }
-
 
   .switch-colors {
     animation: fixedNav-light linear forwards;
@@ -294,11 +299,11 @@ footer div.Flex,
   display: flex;
 }
 #login {
-  .signin-btn ,
-  .loginform > .input{
+  .signin-btn,
+  .loginform > .input {
     display: block;
     text-align: left;
-    padding: 18px 30px;
+    padding: 14px 30px;
     border-radius: 10px;
     font-size: 1.3rem;
     font-weight: 500;
@@ -306,14 +311,46 @@ footer div.Flex,
     display: flex;
     align-items: center;
     gap: 5px;
-    &:first-child{
-      display: inline;
-    font-size: 1.2rem;
 
+    &:first-child {
+      display: inline;
+      font-size: 1.2rem;
     }
-    
   }
 
+  .loginform input[type="submit"] {
+    text-align: center;
+  }
+}
+.loginform .inputContainer {
+  border: 1px solid rgb(var(--text-second));
+  text-align: left;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  label{
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    background-color: rgb(var(--background));
+    padding: 0 5px;
+  }
+
+  input {
+    outline: none;
+    flex-grow: 1;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 200px 200px 100px rgb(var(--background)) inset;
+      box-shadow: 200px 200px 100px rgb(var(--background)) inset;
+    }
+  }
 }
 .socila-list {
   display: flex;

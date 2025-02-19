@@ -11,7 +11,7 @@ const page = () => {
     <LoginLayout>
       <div className="Flex flex-col  m-auto h-full py-[6rem]">
         <div className="flex flex-col gap-5">
-          <h2 className="text-[3.2rem] font-medium ">
+          <h2 className="text-[3.2rem] font-medium">
             Welcome back! Please
             <span className={`${caveat.className} text-brandColor`}>
               Sign in
@@ -23,7 +23,7 @@ const page = () => {
             the first to dive into exciting news and updates by joining our
             community!
           </p>
-          <AuthButtons/>
+          <AuthButtons />
           <p className="text-textlight">
             {`We won't post anything without your permission and your personal details are kept private`}
           </p>

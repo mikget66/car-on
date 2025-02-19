@@ -1,40 +1,50 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { Caveat } from "next/font/google";
 import ThemeSwitch from "../ui/ThemeSwitch";
 import { IoPersonAdd } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 
-
 const caveat = Caveat({ subsets: ["latin"] });
-
-
 
 const links = [
   {
     name: "Home",
     href: "/",
   },
+  // {
+  //   name: "Explore",
+  //   href: "explore",
+  // },
+  // {
+  //   name: "Blog",
+  //   href: "blog",
+  // },
   {
-    name: "Invoices",
-    href: "/dashboard/",
+    name: "About",
+    href: "about",
   },
-  {
-    name: "Customers",
-    href: "/customers",
-  },
+  // {
+  //   name: "Customers",
+  //   href: "/customers",
+  // },
 ];
 
 const Navbar = () => {
   const pathName = usePathname();
-  console.log(pathName)
+  console.log(pathName);
   return (
-    <div className={`fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors z-50 ${
-      pathName !== "/" ? "m-0 bg-background sticky  rounded-none" : ""
-}`}>
+    <div
+      className={`fixed top-0 right-0 left-0 flex items-center rounded-3xl switch-colors z-50  ${
+        pathName !== "/" ? "mb-4 bg-background sticky  rounded-none" : ""
+      }`}
+    >
       <div className="Container w-full">
         <nav className="flex justify-between items-center my-6">
-          <Link href="/" className="logo text-3xl md:text-5xl font-semibold cursor-pointer">
+          <Link
+            href="/"
+            className="logo text-3xl md:text-5xl font-semibold cursor-pointer"
+          >
             Car
             <span className={`${caveat.className} text-brandColor`}>On.</span>
           </Link>
@@ -53,7 +63,7 @@ const Navbar = () => {
           </div>
           <div className="controls">
             <Link href={"/signin"}>
-          <IoPersonAdd />
+              <IoPersonAdd />
             </Link>
             <ThemeSwitch />
           </div>
