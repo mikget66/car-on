@@ -65,8 +65,8 @@ const Navbar = () => {
         </nav>
         <div
           className={`${
-            isresponsiveLinks ? "max-h-40 mb-4" : "max-h-0 overflow-hidden"
-          } transition-scale duration-500 ease-linear lg:scale-0 lg:h-0 `}
+            isresponsiveLinks ? "max-h-40 mb-4" : "max-h-0 overflow-hidden "
+          } transition-scale duration-500 ease-linear lg:m-0 lg:scale-0 lg:h-0 `}
         >
           <ul className=" flex flex-col justify-start gap-3 ">
             {links.map((link) => (

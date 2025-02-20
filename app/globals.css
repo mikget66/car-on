@@ -253,6 +253,16 @@
   }
 }
 
+.brandCard:hover{
+  transform: translateY(-20px);
+  transition: all 400ms ease-out;
+  span{
+    background-color: rgb(var(--brandColor));
+  transition: all 400ms ease-out;
+
+  }
+}
+
 /* Media query for screens up to 1400px */
 @media (max-width: 1400px) {
   .Container {

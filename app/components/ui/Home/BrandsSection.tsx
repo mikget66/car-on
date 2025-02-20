@@ -42,7 +42,7 @@ const BrandsSection = () => {
           {brands.map((brand) => (
             <div
               key={brand.carBrand}
-              className="flex flex-col justify-center items-center bg-background hover:-translate-y-1 gap-2 p-2"
+              className="brandCard flex flex-col justify-center items-center bg-background rounded-sm gap-2 p-2"
             >
               <Image
                 className="brand-image"

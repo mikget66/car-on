@@ -93,7 +93,7 @@ const carArticles = [
 const ServicesSection = () => {
   return (
     <section id="services" className="rounded-3xl lg:m-5 py-10">
-            <SectionHeading
+      <SectionHeading
         title="Services"
         subtitle="CarOn Services"
         description="Discover exciting categories."
@@ -133,25 +133,26 @@ const ServicesSection = () => {
             </AnimateOnScroll>
           ))}
         </div>
-        <div className="my-[30px] electric-cars p-9 rounded-2xl">
+        <div className="my-[30px] electric-cars p-2 lg:p-9 rounded-2xl">
           <div className="">
             <Image
               src={"/images/background/eq-logo.jpg"}
               width={80}
               height={80}
-              alt="sa"
-              className="rounded-2xl my-3"
+              alt="Company logo"
+              className="rounded-sm lg:rounded-2xl my-3 w-10 h-10 md:w-20 md:h-20"
+              sizes="(max-width: 768px) 35px, 80px"
             />
-            <h2 className="text-5xl text-white">
+            <h2 className="text-lg lg:text-5xl text-white">
               Electric crafted by mercedes-benz. <br />
               The all electric range
             </h2>
-            <p className="text-textlight font-bold text-2xl">
+            <p className="text-textlight font-bold text-sm lg:text-2xl">
               Starting form USD 249,000
             </p>
             <Link
               href={"/"}
-              className="text-white bg-brandColor px-4 py-3 font-medium rounded-md my-6 inline-block"
+              className="text-white text-base  bg-brandColor lg:px-4 lg:py-3 px-2 py-1 font-medium rounded-md lg:my-6 inline-block"
             >
               Call Now!
             </Link>
