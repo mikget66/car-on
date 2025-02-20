@@ -278,6 +278,9 @@
   .Container {
     max-width: 760px;
   }
+  .controls {
+    font-size: 1.5rem;
+  }
 }
 
 /* Media query for mobile screens (up to 768px) */
@@ -294,10 +297,7 @@
   min-height: 100px;
   max-height: 150px;
 }
-footer div.Flex,
-#login div.Flex {
-  display: flex;
-}
+
 #login {
   .signin-btn,
   .loginform > .input {
@@ -334,7 +334,7 @@ footer div.Flex,
   align-items: center;
   position: relative;
 
-  label{
+  label {
     position: absolute;
     top: 0;
     transform: translateY(-50%);

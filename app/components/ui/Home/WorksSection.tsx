@@ -11,7 +11,7 @@ export const WorksSection = () => {
       <section id="works" className="flex flex-col items-center my-24">
         <SectionHeading
           title="Works"
-          subtitle="ow It Works"
+          subtitle="How It Works"
           description="Discover exciting categories."
           highlight="Discover exciting categories. Find what you’re looking for."
         />

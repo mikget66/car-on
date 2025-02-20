@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="bg-bgdark text-white pt-36">
       <div className="Container py-4">
-        <div className="bg-brandColor rounded-2xl Flex  flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0">
+        <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0">
           <Image
             src={"/images/background/phone-mpckup.png"}
             width={300}

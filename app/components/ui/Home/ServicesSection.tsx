@@ -136,7 +136,7 @@ const ServicesSection = () => {
         <div className="my-[30px] electric-cars p-9 rounded-2xl">
           <div className="">
             <Image
-              src={"/images/eq-logo.jpg"}
+              src={"/images/background/eq-logo.jpg"}
               width={80}
               height={80}
               alt="sa"
