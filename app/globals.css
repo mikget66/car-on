@@ -221,6 +221,21 @@
   background-repeat: repeat-y;
   background-size: 100% auto;
 }
+#pattern{
+  background-image: url("/svgs/pattern.svg");
+  background-size: 100% auto;
+  background-position: center;
+  span{
+    color: rgb(var(--brandColor));
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 #services {
   background: linear-gradient(
