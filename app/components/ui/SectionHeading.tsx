@@ -21,11 +21,11 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   return (
     <AnimateOnScroll animation="translateY(-100px)">
       <div className="flex flex-col items-center my-11 gap-4">
-        <h1 className={`${caveat.className} text-brandColor  text-6xl`}>
+        <h1 className={`${caveat.className} text-brandColor text-4xl lg:text-6xl`}>
           {title}
         </h1>
-        <h2 className="text-5xl font-semibold lg:max-w-[600px] text-center leading-snug">{subtitle}</h2>
-        <p>
+        <h2 className="text-3xl lg:text-5xl font-semibold lg:max-w-[600px] text-center leading-snug">{subtitle}</h2>
+        <p className="text-center"> 
           {description} <span className="text-brandColor">{highlight}</span>
         </p>
       </div>

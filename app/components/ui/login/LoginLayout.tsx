@@ -5,7 +5,10 @@ const LoginLayout = ({ children }: { children: React.ReactNode }) => {
       id="login"
       className="w-full lg:w-10/12 grid grid-cols-1 lg:grid-cols-3 py-5 m-auto"
     >
+      <div className="mx-2">
+
       {children}
+      </div>
       <div className="hidden col-span-2 bg-light m-auto rounded-3xl p-[5rem] lg:flex flex-col items-center justify-center text-center">
         <h2>Effortlessly organize your workspace with ease.</h2>
         <p className="text-textlight">

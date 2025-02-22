@@ -21,6 +21,8 @@ export default function ThemeSwitch() {
         alt="Loading Light/Dark Toggle"
         priority={false}
         title="Loading Light/Dark Toggle"
+        className="opacity-0 bg-transparent md:text-3xl"
+        style={{ opacity: 0 }}
       />
     );
 

@@ -131,7 +131,7 @@ const ExploreSection = () => {
           >
             Explore
           </h1>
-          <h1 className="text-6xl font-semibold">Explore All Cars</h1>
+          <h1 className="text-4xl lg:text-6xl font-semibold">Explore All Cars</h1>
           <div className="flex justify-between">
             <p>
               Discover exciting categories.

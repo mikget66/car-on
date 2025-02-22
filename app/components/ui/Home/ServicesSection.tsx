@@ -14,28 +14,28 @@ const services = [
     name: "SELL YOUR CAR",
     description:
       "Get the best value for your car with our hassle-free selling process.",
-    image: "public/images/service.png",
+    image: "/images/car-selling.jpg",
     link: "",
   },
   {
     name: "CAR INSURANCE",
     description:
       "Protect your vehicle with comprehensive and affordable insurance plans.",
-    image: "public/images/service.png",
+    image: "/images/CAR-INSURANCE.cms",
     link: "",
   },
   {
     name: "CAR INSPECTION",
     description:
       "Ensure your car is in top condition with our professional inspection services.",
-    image: "public/images/service.png",
+    image: "/images/CAR-INSPECTION.jpeg",
     link: "",
   },
   {
     name: "CAR EXPORT",
     description:
       "Export your car globally with our reliable and efficient export services.",
-    image: "public/images/service.png",
+    image: "/images/CAR-EXPORT.jpg",
     link: "",
   },
 ];
@@ -47,7 +47,7 @@ const carArticles = [
     title: "The Rise of Electric Cars",
     description:
       "How electric vehicles are transforming the automotive industry and what to expect in the future.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/the-rise-of-electric-cars.png",
   },
   {
     date: "2023-09-25",
@@ -55,7 +55,7 @@ const carArticles = [
     title: "Top 10 Luxury Cars of 2023",
     description:
       "A look at the most luxurious and high-performance cars available this year.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/top-10-luxurious.avif",
   },
   {
     date: "2023-09-20",
@@ -63,7 +63,7 @@ const carArticles = [
     title: "Restoring Vintage Cars: A Beginner's Guide",
     description:
       "Tips and tricks for restoring classic cars to their former glory.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/Restoring-Vintage-Cars.jpg",
   },
   {
     date: "2023-09-15",
@@ -71,7 +71,7 @@ const carArticles = [
     title: "The Fastest Sports Cars in the World",
     description:
       "Discover the fastest and most powerful sports cars that dominate the roads.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/The-Fastest-Sports-Cars.avif",
   },
   {
     date: "2023-09-10",
@@ -79,7 +79,7 @@ const carArticles = [
     title: "Essential Car Maintenance Tips",
     description:
       "Keep your car running smoothly with these essential maintenance tips.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/Essential-Car-Maintenance-Tips.webp",
   },
   {
     date: "2023-09-05",
@@ -87,7 +87,7 @@ const carArticles = [
     title: "The Future of Self-Driving Cars",
     description:
       "Exploring the technology behind autonomous vehicles and their potential impact on transportation.",
-    image: "/images/placeholders/6.jpg",
+    image: "/images/The-Future-of-Self-Driving-Cars.jpg",
   },
 ];
 const ServicesSection = () => {
@@ -114,13 +114,15 @@ const ServicesSection = () => {
                   <div className="text-2xl font-semibold inline">{`0${
                     index + 1
                   } /`}</div>
+                  <div className="h-[110px] w-[180px] overflow-hidden relative">
                   <Image
-                    src={"/images/placeholders/03.png"}
-                    width={250}
-                    height={180}
-                    alt="m"
-                    style={{ display: "inline" }}
-                  />
+                      fill
+                      src={service.image}
+                      alt={service.name}
+                      style={{ display: "" }}
+                      className="object-cover overflow-hidden inline"
+                    />
+                  </div>
                 </div>
                 <div className="">
                   <h3 className="text-2xl font-semibold">{service.name}</h3>
@@ -163,11 +165,11 @@ const ServicesSection = () => {
           <div className="lg:sticky lg:top-[150px] h-fit col-span-2">
             <AnimateOnScroll>
               <h2
-                className={`${caveat.className} text-brandColor font-semibold text-5xl`}
+                className={`${caveat.className} text-brandColor font-semibold text-3xl lg:text-5xl`}
               >
                 Our Latest Articles
               </h2>
-              <h3 className="text-6xl">
+              <h3 className="text-4xl lg:text-6xl">
                 Discover Our Latest News And Articles
               </h3>
               <p>
@@ -205,13 +207,12 @@ const ServicesSection = () => {
                   <p className="text-textlight">{article.description}</p>
                 </div>
                 <div className="flex justify-end items-start">
-                  <div className="overflow-hidden w-[300px] aspect-square rounded-2xl ">
+                  <div className="h-[300px] w-full overflow-hidden relative rounded-xl">
                     <Image
                       src={article.image}
                       alt={article.title}
-                      width={300}
-                      height={300}
-                      className="hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"
+                      fill
+                      className="object-cover hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"
                     />
                   </div>
                 </div>
@@ -219,7 +220,7 @@ const ServicesSection = () => {
             ))}
           </div>
           <div className="relative w-0 h-0">
-            <div className="absolute bottom-[100px] w-[400px] max-w-60 aspect-square bg-brandColor  -z-0 blur-[350px] opacity-100"></div>
+            <div className="absolute bottom-[100px] w-[400px] max-w-60 aspect-square bg-brandColor  -z-0 blur-[200px] opacity-90"></div>
           </div>
         </div>
       </div>

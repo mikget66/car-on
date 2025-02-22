@@ -236,6 +236,19 @@
     align-items: center;
   }
 }
+.styled-paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+  
+}
+
+.first-letter {
+  font-size: 40px;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+  line-height: 1; 
+}
 
 #services {
   background: linear-gradient(
@@ -254,7 +267,7 @@
   background-size: 73%;
 }
 .Container {
-  max-width: 1450px; /* Replaces fixed width with max-width */
+  max-width: 1300px; /* Replaces fixed width with max-width */
   width: 100%; /* Ensures it takes full width up to max-width */
   margin: auto;
 }

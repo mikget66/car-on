@@ -30,7 +30,7 @@ const Navbar = () => {
       }`}
     >
       <div className="Container w-full">
-        <nav className="flex justify-between items-center my-6">
+        <nav className="flex justify-between items-center my-3">
           <Link
             href="/"
             className="logo text-3xl md:text-5xl font-semibold cursor-pointer"
