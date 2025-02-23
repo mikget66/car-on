@@ -20,11 +20,11 @@ const Footer = () => {
       <div className="Container py-4">
         <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0">
           <Image
-            src={"/images/background/phone-mpckup.png"}
-            width={300}
+            src={"/images/background/phone.png"}
+            width={200}
             height={300}
             alt=""
-            className="lg:self-end m-0 order-last lg:order-first"
+            className="lg:self-end m-0 order-last lg:order-first shadow-lg"
           />
           <div className="">
             <p className="text-3xl font-medium">Download Our App</p>

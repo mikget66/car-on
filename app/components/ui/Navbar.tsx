@@ -17,8 +17,11 @@ const links = [
 const Navbar = () => {
   const pathName = usePathname();
   const [isresponsiveLinks, setIsresponsiveLinks] = useState(false);
-  const toggleSidebar = () => {
+  const toggleResponsiveNav = () => {
     setIsresponsiveLinks(!isresponsiveLinks);
+  };
+  const closeResponsiveNav = () => {
+    setIsresponsiveLinks(false);
   };
 
   return (
@@ -58,7 +61,7 @@ const Navbar = () => {
               <IoPersonAdd />
             </Link>
             <ThemeSwitch />
-            <button className="inline md:hidden" onClick={toggleSidebar}>
+            <button className="inline md:hidden" onClick={toggleResponsiveNav}>
               <RxHamburgerMenu />
             </button>
           </div>
@@ -70,11 +73,11 @@ const Navbar = () => {
         >
           <ul className=" flex flex-col justify-start gap-3 ">
             {links.map((link) => (
-              <li key={link.name} className="bg-light p-2 rounded-md">
-                <Link href={link.href} className="text-xl font-semibold ">
+              <Link key={link.name} href={link.href} className="text-xl font-semibold  "  onClick={closeResponsiveNav}>
+                <li  className="bg-light p-2 rounded-md">
                   {link.name}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

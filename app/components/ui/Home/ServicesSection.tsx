@@ -21,7 +21,7 @@ const services = [
     name: "CAR INSURANCE",
     description:
       "Protect your vehicle with comprehensive and affordable insurance plans.",
-    image: "/images/CAR-INSURANCE.cms",
+    image: "/images/CAR-INSURANCE.png",
     link: "",
   },
   {

@@ -2,7 +2,6 @@ import { Caveat } from "next/font/google";
 import SectionHeading from "../SectionHeading";
 import AnimateOnScroll from "../AnimateOnScroll";
 
-
 const caveat = Caveat({ subsets: ["latin"] });
 
 export const WorksSection = () => {
@@ -26,8 +25,8 @@ export const WorksSection = () => {
               </span>
               <h4 className="text-3xl">Find Your Car</h4>
               <p className="">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nostrum, amet?
+                Select the vehicle that best fits your needs from our wide range
+                of options.
               </p>
             </div>
           </AnimateOnScroll>
@@ -41,8 +40,8 @@ export const WorksSection = () => {
 
               <h4 className="text-3xl">Provide transfer details</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nostrum, amet?
+                Enter the pickup and drop-off locations along with your
+                preferred schedule.
               </p>
             </div>
           </AnimateOnScroll>
@@ -56,8 +55,8 @@ export const WorksSection = () => {
 
               <h4 className="text-3xl">Get your car delivered</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nostrum, amet?
+                Sit back and relax as we deliver your chosen vehicle right to
+                your doorstep.
               </p>
             </div>
           </AnimateOnScroll>
