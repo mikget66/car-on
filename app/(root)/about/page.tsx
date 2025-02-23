@@ -6,20 +6,41 @@ const caveat = Caveat({ subsets: ["latin"] });
 
 import { useEffect } from "react";
 
+const awards = [
+  {
+    title: "Best Automotive Marketplace 2024",
+    image: "/svgs/Award.svg",
+    date: "January 2024"
+  },
+  {
+    title: "Customers' Choice Award",
+    image: "/svgs/Award.svg",
+    date: "December 2023"
+  },
+  {
+    title: "Top Verified Listings Platform",
+    image: "/svgs/Award.svg",
+    date: "November 2023"
+  },
+  {
+    title: "Most Transparent Pricing",
+    image: "/svgs/Award.svg",
+    date: "October 2023"
+  }
+];
 const Page = () => {
-  // Component name should start with capital letter
   useEffect(() => {
     const counters = document.querySelectorAll<HTMLSpanElement>(".counter");
 
     const startCount = (counter: HTMLSpanElement) => {
-      const target = Number(counter.dataset.target) || 0; // Better type handling
+      const target = Number(counter.dataset.target) || 0; 
       const increment = target / 100;
       let count = 0;
 
       const updateCount = () => {
         count += increment;
         if (count < target) {
-          counter.textContent = Math.floor(count).toString(); // Better type safety
+          counter.textContent = Math.floor(count).toString(); 
           requestAnimationFrame(updateCount);
         } else {
           counter.textContent = target.toString();
@@ -33,8 +54,8 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="Container">
-      <div className=" flex flex-col items-center gap-8">
+    <div className="">
+      <div className="Container flex flex-col items-center gap-8">
         {" "}
         {/* Fixed className casing */}
         <span className="bg-brandColor p-2 rounded-3xl">
@@ -67,14 +88,14 @@ const Page = () => {
           ))}
         </div>
       </div>
-      <section className="">
+      <section className="Container">
         <SectionHeading
           title=" About Us"
-          subtitle="Explore over 2.5 million people travel around the world."
-          description="Discover exciting categories."
-          highlight="Find what you’re looking for. "
+          subtitle="Browse 10,000+ verified new & pre-owned vehicles"
+          description="Buy, sell, or rent cars with transparent pricing"
+          highlight="Get the best deals on your dream car today"
         />
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%]">
           <div className="flex flex-col gap-5">
             <p className="styled-paragraph">
               <span className="first-letter text-brandColor">O</span>ur platform
@@ -106,6 +127,68 @@ const Page = () => {
               height={100}
               alt="signature"
             />
+          </div>
+          <div className="aboutImageGrid h-[450px] lg:h-auto">
+            <div className="col">
+              <div className="ImageContainer">
+                <Image
+                  src={"/images/grid1.webp"}
+                  alt={"grid Image"}
+                  fill
+                  className="object-cover "
+                />
+              </div>
+              <div className="ImageContainer">
+                <Image
+                  src={"/images/grid2.jpeg"}
+                  alt={"grid Image"}
+                  fill
+                  className="object-cover "
+                />
+              </div>
+            </div>
+            <div className="col">
+              <div className="ImageContainer">
+                <Image
+                  src={"/images/grid3.webp"}
+                  alt={"grid Image"}
+                  fill
+                  className="object-cover "
+                />
+              </div>
+              <div className="ImageContainer">
+                <Image
+                  src={"/images/grid4.jpg"}
+                  alt={"grid Image"}
+                  fill
+                  className="object-cover "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="awards" className="bg-light mx-3 rounded-xl py-5 my-4">
+        <div className="Container flex flex-col items-center">
+          <SectionHeading
+            title="Our Recognition"
+            subtitle="Trusted by thousands of car enthusiasts"
+            description="Celebrating excellence in automotive marketplace innovation"
+            highlight="Your journey to the perfect vehicle starts here"
+          />
+          <div className="flex flex-col md:flex-row justify-between gap-3">
+            {awards.map(({title, image ,date}) => (
+              <div key={title} className="flex flex-col gap-3 items-center">
+                <Image
+                  src={image}
+                  width={100}
+                  height={100}
+                  alt="Award SVG"
+                />
+                <p className="text-brandColor font-semibold">{title}</p>
+                <p>{date}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

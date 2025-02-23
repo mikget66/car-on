@@ -24,7 +24,7 @@ const Footer = () => {
             width={200}
             height={300}
             alt=""
-            className="lg:self-end m-0 order-last lg:order-first shadow-lg"
+            className="lg:self-end m-0 order-last lg:order-first  drop-shadow-[0_50px_50px_rgba(0,0,0,.6)] "
           />
           <div className="">
             <p className="text-3xl font-medium">Download Our App</p>

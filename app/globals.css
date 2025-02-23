@@ -221,16 +221,16 @@
   background-repeat: repeat-y;
   background-size: 100% auto;
 }
-#pattern{
+#pattern {
   background-image: url("/svgs/pattern.svg");
   background-size: 100% auto;
   background-position: center;
-  span{
+  span {
     color: rgb(var(--brandColor));
     font-size: 3rem;
     font-weight: bold;
   }
-  >div{
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,7 +239,6 @@
 .styled-paragraph {
   font-size: 16px;
   line-height: 1.6;
-  
 }
 
 .first-letter {
@@ -247,7 +246,7 @@
   font-weight: bold;
   float: left;
   margin-right: 5px;
-  line-height: 1; 
+  line-height: 1;
 }
 
 #services {
@@ -273,7 +272,7 @@
 }
 .controls {
   display: flex;
-  font-size: 2rem;
+  font-size: 32px;
   gap: 1rem;
   > * {
     display: inline;
@@ -281,13 +280,48 @@
   }
 }
 
-.brandCard:hover{
+.aboutImageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "col-1 col-2";
+  padding: 2rem;
+  gap: 20px;
+
+  .col {
+    gap: 20px;
+    display: grid;
+
+
+
+    &:first-child {
+      grid-area: col-1;
+      grid-template-rows: 60% 40%;
+    }
+    
+    &:last-child {
+      grid-area: col-2;
+      grid-template-rows: 40% 60%;
+    }
+
+    .ImageContainer{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border: 5px solid rgb(var(--brandColor));
+      border-radius: 20px;
+      /* h-[full] w-full overflow-hidden relative */
+    }
+  }
+
+}
+
+.brandCard:hover {
   transform: translateY(-20px);
   transition: all 400ms ease-out;
-  span{
+  span {
     background-color: rgb(var(--brandColor));
-  transition: all 400ms ease-out;
-
+    transition: all 400ms ease-out;
   }
 }
 

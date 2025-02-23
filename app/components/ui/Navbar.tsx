@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
+    <header
       className={`fixed top-0 right-0 left-0 flex items-center rounded-lg lg:rounded-2xl m-3 switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
         pathName !== "/"
           ? "mb-4 bg-background sticky rounded-none shadow-lg"
@@ -61,7 +61,7 @@ const Navbar = () => {
               <IoPersonAdd />
             </Link>
             <ThemeSwitch />
-            <button className="inline md:hidden" onClick={toggleResponsiveNav}>
+            <button className="inline md:hidden lg:scale-0 lg:w-0 " onClick={toggleResponsiveNav}>
               <RxHamburgerMenu />
             </button>
           </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
