@@ -1,20 +1,21 @@
 import Image from "next/image";
 import markdownit from "markdown-it";
 
-const Page = async ({ params }: { params: { id: number } }) => {
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const md = markdownit();
+  const id = (await params).id
+  
+  const baseUrl = "https://car-on.vercel.app"
+
 
   try {
-    // Fetch data from the API route
-    const response = await fetch(
-      `http://localhost:3000/api/carArticles/${params.id}`
-    );
+    const response = await fetch(`${baseUrl}/api/carArticles/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const Article = await response.json();
     const parsedContent = md.render(Article?.content);
-    console.log(Article)
+    console.log(Article);
     return (
       <div className="flex flex-col items-center py-5 gap-3">
         <h2 className="text-center text-3xl bg-light p-3 shadow-lg">
@@ -29,18 +30,17 @@ const Page = async ({ params }: { params: { id: number } }) => {
               fill
               className="object-cover"
             />
-
           </div>
 
           {parsedContent ? (
-              <article
-                className="prose break-all article max-w-5xl"
-                dangerouslySetInnerHTML={{ __html: parsedContent }}
-              />
-            ) : (
-              <p className="no-result ">No details provided</p>
-            )}
-            <span className="text-brandColor">{Article.author}</span>
+            <article
+              className="prose break-all article max-w-5xl"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
+            />
+          ) : (
+            <p className="no-result ">No details provided</p>
+          )}
+          <span className="text-brandColor">{Article.author}</span>
         </div>
       </div>
     );
@@ -50,4 +50,4 @@ const Page = async ({ params }: { params: { id: number } }) => {
   }
 };
 
-export default Page;
+export default page;
