@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "@tailwindcss/typography";
 
 * {
   input {
@@ -63,6 +64,7 @@
     mix-blend-mode: normal; /* Reset blend mode for dark mode */
   }
 }
+
 .light {
   --background: 255, 255, 255;
   --bglight: 248, 244, 243;
@@ -169,6 +171,19 @@
   border-bottom-right-radius: 5px;
   text-transform: uppercase;
 }
+.article {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  h1 {
+    font-size: 3rem;
+  }
+  a {
+    text-decoration: underline;
+    color: rgb(var(--brandColor));
+  }
+}
 .dark-overlay {
   border-image: fill 1 linear-gradient(to bottom, #2c2c2c, #1a1a1a);
 }
@@ -215,6 +230,50 @@
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: auto;
+}
+
+.blogsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  *:nth-child(4n + 2) img,
+  *:nth-child(4n + 3) img {
+    display: none;
+    height: 0;
+  }
+}
+.hoverP {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding: 5px 0;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  -webkit-background-clip: text;
+  background-position: -100%;
+  transition: all 0.3s ease-in-out;
+  &:before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 0;
+    bottom: -3px;
+    z-index: 0;
+    position: absolute;
+    background: rgb(var(--brandColor));
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    background-position: 0%;
+    &:before {
+      width: 100%;
+    }
+  }
 }
 #explore {
   background-image: url("/svgs/lines-2.svg");
@@ -291,19 +350,17 @@
     gap: 20px;
     display: grid;
 
-
-
     &:first-child {
       grid-area: col-1;
       grid-template-rows: 60% 40%;
     }
-    
+
     &:last-child {
       grid-area: col-2;
       grid-template-rows: 40% 60%;
     }
 
-    .ImageContainer{
+    .ImageContainer {
       position: relative;
       height: 100%;
       width: 100%;
@@ -313,7 +370,6 @@
       /* h-[full] w-full overflow-hidden relative */
     }
   }
-
 }
 
 .brandCard:hover {
@@ -352,6 +408,10 @@
   }
   .controls {
     font-size: 1.5rem;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -359,6 +419,9 @@
 @media (max-width: 768px) {
   .Container {
     max-width: 90%; /* Uses max-width instead of width for consistency */
+  }
+  .aboutImageGrid {
+    padding: 0.5rem;
   }
 }
 .onde {

@@ -11,7 +11,8 @@ const caveat = Caveat({ subsets: ["latin"] });
 
 const links = [
   { name: "Home", href: "/" },
-  { name: "About", href: "about" },
+  { name: "About", href: "/about" },
+  { name: "Blogs", href: "/blogs" },
 ];
 
 const Navbar = () => {
