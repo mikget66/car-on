@@ -1,18 +1,65 @@
 import Image from "next/image";
 
 type Article = {
-    date: string;
-    category: string;
-    title: string;
-    description: string;
-    image: string;
-  };
-  
+  date: string;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+};
 
-const Articles = async () => {
-  const response = await fetch("http://localhost:3001/carArticles");
-  const carArticles = await response.json();
+const carArticles = [
+  {
+    date: "2023-10-01",
+    category: "Electric Vehicles",
+    title: "The Rise of Electric Cars",
+    description:
+      "How electric vehicles are transforming the automotive industry and what to expect in the future.",
+    image: "/images/the-rise-of-electric-cars.png",
+  },
+  {
+    date: "2023-09-25",
+    category: "Luxury Cars",
+    title: "Top 10 Luxury Cars of 2023",
+    description:
+      "A look at the most luxurious and high-performance cars available this year.",
+    image: "/images/top-10-luxurious.avif",
+  },
+  {
+    date: "2023-09-20",
+    category: "Classic Cars",
+    title: "Restoring Vintage Cars: A Beginner's Guide",
+    description:
+      "Tips and tricks for restoring classic cars to their former glory.",
+    image: "/images/Restoring-Vintage-Cars.jpg",
+  },
+  {
+    date: "2023-09-15",
+    category: "Sports Cars",
+    title: "The Fastest Sports Cars in the World",
+    description:
+      "Discover the fastest and most powerful sports cars that dominate the roads.",
+    image: "/images/The-Fastest-Sports-Cars.avif",
+  },
+  {
+    date: "2023-09-10",
+    category: "Car Maintenance",
+    title: "Essential Car Maintenance Tips",
+    description:
+      "Keep your car running smoothly with these essential maintenance tips.",
+    image: "/images/Essential-Car-Maintenance-Tips.webp",
+  },
+  {
+    date: "2023-09-05",
+    category: "Autonomous Vehicles",
+    title: "The Future of Self-Driving Cars",
+    description:
+      "Exploring the technology behind autonomous vehicles and their potential impact on transportation.",
+    image: "/images/The-Future-of-Self-Driving-Cars.jpg",
+  },
+];
 
+const Articles = () => {
   return (
     <div className="col-span-3 flex flex-col gap-5 z-10">
       {carArticles.map((article: Article) => (
@@ -39,7 +86,7 @@ const Articles = async () => {
                 src={article.image}
                 alt={article.title}
                 fill
-                className="object-cover hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"                
+                className="object-cover hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"
               />
             </div>
           </div>
