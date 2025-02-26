@@ -1,12 +1,12 @@
 import Image from "next/image";
 import markdownit from "markdown-it";
+import baseUrl from '@/app/data/baseURL'
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const md = markdownit();
-  const id = (await params).id
-  
-  const baseUrl = "https://car-on.vercel.app"
+  const id = (await params).id;
 
+  
 
   try {
     const response = await fetch(`${baseUrl}/api/carArticles/${id}`);

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import baseUrl from '@/app/data/baseURL'
+
 
 type Article = {
   id: string;
@@ -11,8 +13,7 @@ type Article = {
 };
 
 const page = async () => {
-  const baseUrl = "https://car-on.vercel.app"
-      
+  
 
   try {
     const response = await fetch(`${baseUrl}/api/carArticles`);
@@ -34,23 +35,23 @@ const page = async () => {
             first-time buyer, we’ve got you covered!
           </p>
         </div>
-        <div className="">
-          <div className="blogsContainer">
+        <div className="Container ">
+          <div className=" blogsContainer">
             {carArticles.map((article: Article) => (
               <Link href={`/blogs/${article.id}`} key={article.title}>
-                <article className="bg-light  rounded-xl grid grid-cols-1 gap-4 min-h-[400px]">
-                  <div className="flex justify-end items-start">
-                    <div className="h-[300px] w-full overflow-hidden relative rounded-xl">
+                <article className="bg-light  rounded-xl grid overflow-hidden grid-cols-1 gap-4 min-h-[400px]">
+                  <div className=" flex justify-end items-start">
+                    <div className="h-[100px] lg:h-[300px] w-full relative ">
                       <Image
                         src={article.image}
                         alt={article.title}
                         fill
-                        className="object-cover hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"
+                        className="object-cover "
                       />
                     </div>
                   </div>
                   <div
-                    className="flex flex-col justify-start items-start gap-4"
+                    className="flex flex-col justify-start items-start gap-4 p-2"
                     aria-label="content article"
                   >
                     <div className="flex gap-2 justify-start items-center">
@@ -59,7 +60,7 @@ const page = async () => {
                         {article.category}
                       </span>
                     </div>
-                    <h3 className="text-4xl font-bold hoverP">
+                    <h3 className="text-xl lg:text-4xl font-bold">
                       {article.title}
                     </h3>
                     <p className="text-textlight ">{article.description}</p>

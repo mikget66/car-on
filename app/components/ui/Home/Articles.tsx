@@ -1,6 +1,8 @@
 // app/components/Articles.js
 import Image from "next/image";
 import Link from "next/link";
+import baseUrl from '@/app/data/baseURL'
+
 
 type Article = {
   id: string;
@@ -12,11 +14,10 @@ type Article = {
 };
 
 const Articles = async () => {
-
-  const baseUrl = "https://car-on.vercel.app"
+  
 
   try {
-    const response = await fetch( `${baseUrl}/api/carArticles`);
+    const response = await fetch(`${baseUrl}/api/carArticles`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -25,7 +26,7 @@ const Articles = async () => {
 
     return (
       <div className="col-span-3 flex flex-col gap-5 z-10">
-        {carArticles.map((article: Article) => (
+        {carArticles.slice(0, 6).map((article: Article) => (
           <Link key={article.title} href={`/blogs/${article.id}`}>
             <article className="bg-light p-8 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-[400px]">
               <div
