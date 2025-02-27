@@ -1,7 +1,7 @@
 import cars from "../../../data/cars";
 
 export async function GET(request, { params }) {
-    const { id } = params;
+    const { id } = await params;
   
  
     // Find the article with the matching ID

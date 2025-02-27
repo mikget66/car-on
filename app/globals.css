@@ -242,6 +242,22 @@
     height: 0;
   }
 }
+.cardetails{
+  padding: 15px;
+  border-radius: 20px;
+
+  .features{
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+
+    span{
+      background: rgb(var(--bglight));
+      padding: 3px;
+      border-radius: 5px;
+    }
+  }
+}
 .hoverP {
   display: -webkit-box;
   -webkit-box-orient: vertical;

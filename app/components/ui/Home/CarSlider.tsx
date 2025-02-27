@@ -14,20 +14,9 @@ import { GiSpeedometer } from "react-icons/gi";
 import { SwiperButtons } from "./SwiperButtons";
 import Link from "next/link";
 import baseUrl from '@/app/data/baseURL'
+import { Car } from "@/types/car";
 
 
-type Car = {
-  id: number;
-  discountPercentage?: number;
-  carBrand: string;
-  carModel: string;
-  year: number;
-  price: number;
-  fuelType: string;
-  transmission: string;
-  topSpeed: number;
-  image: string;
-};
 
 const CarSlider = () => {
   const [cars, setCars] = useState<Car[]>([]);
@@ -86,7 +75,7 @@ const CarSlider = () => {
                   )}
                   <Image
                     className="object-cover w-full h-full"
-                    src={car.image}
+                    src={car.images[0]}
                     alt={car.carBrand}
                     width={540}
                     height={344}

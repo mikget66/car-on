@@ -27,10 +27,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 flex items-center rounded-lg lg:rounded-2xl m-3 switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
+      className={`fixed top-0 right-0 left-0 flex items-center rounded-lg lg:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
         pathName !== "/"
-          ? "mb-4 bg-background sticky rounded-none shadow-lg"
-          : ""
+          ? "bg-background sticky rounded-none shadow-lg"
+          : "m-3"
       }`}
     >
       <div className="Container w-full">

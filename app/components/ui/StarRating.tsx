@@ -14,7 +14,7 @@ const StarRating = ({ rating }: StarRatingProps) => {
         .Stars {
           --percent: calc(var(--rating) / 5 * 100%);
           display: inline-block;
-          font-size: 1rem;
+          font-size: 1.2rem;
           font-family: Times;
           line-height: 1;
           position: relative;
@@ -22,7 +22,6 @@ const StarRating = ({ rating }: StarRatingProps) => {
 
         .Stars::before {
           content: "★★★★★";
-          letter-spacing: 3px;
           background: linear-gradient(
             90deg,
             #fc0 var(--percent),
