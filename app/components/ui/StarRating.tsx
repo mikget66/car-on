@@ -15,6 +15,7 @@ const StarRating = ({ rating }: StarRatingProps) => {
           --percent: calc(var(--rating) / 5 * 100%);
           display: inline-block;
           font-size: 1.2rem;
+
           font-family: Times;
           line-height: 1;
           position: relative;
@@ -34,7 +35,7 @@ const StarRating = ({ rating }: StarRatingProps) => {
 
         @media (max-width: 768px) {
           .Stars {
-            font-size: 40px;
+            font-size: 20px;
           }
         }
       `}</style>

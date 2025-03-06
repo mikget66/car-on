@@ -7,7 +7,9 @@ interface AccordionProps {
   title: string;
   titleColor?: string;
   subTitle: string;
+  IsOpen?: boolean;
   children?: ReactNode;
+
 }
 
 const AccordionComponent: React.FC<AccordionProps> = ({
@@ -17,8 +19,9 @@ const AccordionComponent: React.FC<AccordionProps> = ({
   titleColor = "text-white",
   subTitle,
   children,
+  IsOpen = false,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(IsOpen);
 
   return (
     <div

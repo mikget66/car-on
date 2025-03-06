@@ -2,6 +2,7 @@ import React from "react";
 
 import Navbar from "../components/ui/Navbar";
 import Footer from "../components/ui/Footer";
+import ScroolToTop from "../components/ui/ScroolToTop";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Navbar />
       {children}
       <Footer/>
+      <ScroolToTop />
     </div>
   );
 }

@@ -5,20 +5,28 @@ import { Car } from "@/types/car";
 import baseUrl from "@/app/data/baseURL";
 import { useState, useEffect, useRef } from "react";
 
-import { PiEngine } from "react-icons/pi";
+import { PiEngine, PiThermometerHot } from "react-icons/pi";
 import { MdFullscreen } from "react-icons/md";
-import { FaCar, FaGears } from "react-icons/fa6";
-import { IoKey, IoLocation } from "react-icons/io5";
+import { FaCar, FaCarBurst, FaGears } from "react-icons/fa6";
+import { IoKey } from "react-icons/io5";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { AiTwotoneSafetyCertificate } from "react-icons/ai";
-import { FaExternalLinkAlt, FaRoad, FaUsers } from "react-icons/fa";
+import {
+  FaCheckCircle,
+  FaExternalLinkAlt,
+  FaRoad,
+  FaUsers,
+  FaWater,
+} from "react-icons/fa";
 import { BsSpeedometer2, BsFillFuelPumpFill } from "react-icons/bs";
-import { GiGearStick, GiHomeGarage, GiCarWheel } from "react-icons/gi";
+import { GiGearStick, GiCarWheel } from "react-icons/gi";
 
 import StarRating from "@/app/components/ui/StarRating";
 
 import { Caveat } from "next/font/google";
 import AccordionComponent from "@/app/components/ui/AccordionComponent";
+import TyreCondition from "@/app/components/ui/carDetails/TyreCondition";
+import CardDetails from "@/app/components/ui/carDetails/CardDetails";
 const caveat = Caveat({ subsets: ["latin"] });
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
@@ -78,8 +86,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
       <div className="Container flex flex-col gap-6 py-4 ">
         <div className="flex justify-between items-center gap-2">
           <div>
-            <h2 className="text-[2.2rem] font-medium">{`${car.year} ${car.carBrand} ${car.carModel}`}</h2>
-            <div className="my-2 flex flex-row items-center gap-3">
+            <h2 className="text-xl lg:text-[2.2rem] font-medium">{`${car.year} ${car.carBrand} ${car.carModel}`}</h2>
+            <div className="my-2 flex flex-row items-center gap-1 lg:gap-3">
               <Link href={"/"}>{car.carBrand}</Link>{" "}
               <FaExternalLinkAlt className="inline" />/
               <StarRating rating={car.rating} />{" "}
@@ -110,8 +118,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
         </div>
 
-        <div className="rounded-xl overflow-hidden grid grid-cols-3 grid-rows-2 gap-2  md:h-[350px] xl:h-[480px] 2xl:h-[540px] relative">
-          <div className="row-span-full col-span-full md:row-span-2 md:col-span-2 relative">
+        <div className="rounded-xl overflow-hidden grid grid-cols-3 grid-rows-2 gap-2 h-[250px] sm:h-[300px] md:h-[350px] xl:h-[480px] 2xl:h-[540px] relative">
+          <div className="row-span-full col-span-full md:row-span-2 md:col-span-2 relative ">
             <Image
               src={car.images[0]}
               fill
@@ -142,7 +150,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             View photos
           </div>
         </div>
-        <div className="grid grid-cols-[60%_40%] gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-2">
           <div className="flex flex-col gap-4 border-b-[1px] border-gray-600 pb-10">
             <h3 className="text-4xl font-medium my-4">
               Know Your{" "}
@@ -187,7 +195,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-4 moredetails">
+            <div className="grid lg:grid-cols-4 moredetails">
               <div>
                 <div>
                   <AiTwotoneSafetyCertificate />
@@ -271,17 +279,114 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               </div>
             </div>
             <div className="flex flex-col gap-4">
+              <h3 className="text-4xl font-medium my-4">
+                Inspection{" "}
+                <span className={`${caveat.className} text-brandColor`}>
+                  Report
+                </span>
+              </h3>
+              <div className="flex justify-between flex-col md:flex-row gap-4">
+                <p>
+                  We aim to provide our customers with a reliable drive. Every
+                  car we sell is refurbished by experts at our Mega
+                  Refurbishment Labs.
+                </p>
+                <div className="flex justify-between">
+                  <div className="flex flex-col text-center items-center mx-4 text-sm gap-2">
+                    <div className="bg-background p-2 flex items-center justify-center h-14 w-14 rounded-lg">
+                      <FaCarBurst size={25} />
+                    </div>
+                    {car.inspectionReport.accedental ? (
+                      <span>Accidental</span>
+                    ) : (
+                      <span>Not Accidental</span>
+                    )}
+                  </div>
+                  <div className="flex flex-col text-center items-center mx-4 text-sm gap-2">
+                    <div className="bg-background p-2 flex items-center justify-center h-14 w-14 rounded-lg">
+                      <PiThermometerHot size={25} />
+                    </div>
+                    {car.inspectionReport.tempered ? (
+                      <span>Tempered</span>
+                    ) : (
+                      <span>Not Tempered</span>
+                    )}
+                  </div>
+                  <div className="flex flex-col text-center items-center mx-4 text-sm gap-2">
+                    <div className="bg-background p-2 flex items-center justify-center h-14 w-14 rounded-lg">
+                      <FaWater size={25} />
+                    </div>
+                    {car.inspectionReport.flooded ? (
+                      <span>Flooded</span>
+                    ) : (
+                      <span>Not Flooded </span>
+                    )}
+                  </div>
+                </div>
+              </div>
               <AccordionComponent
                 title="Imperfections"
                 subTitle="Details of any imperfections"
               >
                 {car.inspectionReport.imprerfections?.map(
                   (imperfection, index: number) => (
-                    <div key={index} className="flex justify-between">
+                    <div
+                      key={index}
+                      className="flex justify-between items-center"
+                    >
                       {imperfection.part}
                       <span>{imperfection.issue}</span>
                       {imperfection.image ? (
-                        <img src={imperfection.image} alt="" />
+                        <Image
+                          src={"/images/CAR-INSPECTION.jpeg"}
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      ) : (
+                        <div
+                          role="status"
+                          className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
+                        >
+                          <div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700">
+                            <svg
+                              className="w-10 h-10 text-gray-200 dark:text-gray-600"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="currentColor"
+                              viewBox="0 0 20 18"
+                            >
+                              <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+                            </svg>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )
+                )}
+              </AccordionComponent>
+
+              <AccordionComponent
+                icon={<FaGears size={20} />}
+                iconColor="text-blue-500"
+                title="Repainted parts"
+                subTitle="Details of any repainted parts"
+              >
+                {car.inspectionReport.repaintedParts?.map(
+                  (repaintedPart, index: number) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-center"
+                    >
+                      {repaintedPart.part}
+
+                      {repaintedPart.image ? (
+                        <Image
+                          src={"/images/CAR-INSPECTION.jpeg"}
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
                       ) : (
                         <div
                           role="status"
@@ -305,47 +410,52 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
                 )}
               </AccordionComponent>
               <AccordionComponent
-                icon={<FaGears size={20} />}
-                iconColor="text-blue-500"
-                title="Repainted parts"
-                subTitle="Details of any repainted parts"
+                title="Perfect parts"
+                subTitle="Details of any perfect parts"
+                icon={<FaCheckCircle size={20} />}
+                iconColor="text-green-500"
               ></AccordionComponent>
               <AccordionComponent
-                title="Imperfections"
-                subTitle="Details of any imperfections"
-              ></AccordionComponent>
-              <AccordionComponent
-                title="Imperfections"
-                subTitle="Details of any imperfections"
-              ></AccordionComponent>
+                title="Tyres (Life Remaining)"
+                subTitle="These tyres are in good condition. We ensure every tyre has a minimum tread depth of 1 mm, with no sidewall damage"
+                IsOpen={true}
+              >
+                <div className="grid grid-cols-2 tyreCondition gap-x-3">
+                  <div>
+                    <span>Left Front Tyre</span>
+                    <TyreCondition
+                      percentage={car.inspectionReport.tyers.flTyre}
+                    />
+                  </div>
+                  <div>
+                    <span>Right Front Tyre</span>
+                    <TyreCondition
+                      percentage={car.inspectionReport.tyers.frTyre}
+                    />
+                  </div>
+                  <div>
+                    <span>Left Rear Tyre</span>
+                    <TyreCondition
+                      percentage={car.inspectionReport.tyers.rlTyre}
+                    />
+                  </div>
+                  <div>
+                    <span>Right Rear Tyre</span>
+                    <TyreCondition
+                      percentage={car.inspectionReport.tyers.rrTyre}
+                    />
+                  </div>
+                  <div>
+                    <span>Spare Tyre</span>
+                    <TyreCondition
+                      percentage={car.inspectionReport.tyers.spareTyre}
+                    />
+                  </div>
+                </div>
+              </AccordionComponent>
             </div>
           </div>
-          <div className="bg-background cardetails ">
-            <h2 className="text-2xl font-semibold">{`${car.year} ${car.carBrand} ${car.carModel}`}</h2>
-            <span>{car.transmission}</span>
-            <div className="features ">
-              <span>{car.kmDriven}KM</span>
-              <span>{car.ownerShip}</span>
-              <span>{car.fuelType}</span>
-              <span>{car.regNumber}</span>
-            </div>
-            <div>
-              <div className="flex gap-1">
-                <GiHomeGarage />
-                <span>Home Test Drive Available</span>
-              </div>
-              <div className="flex gap-1">
-                <IoLocation />
-                <span>{car.location}</span>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <h3 className="text-2xl font-semibold">Price</h3>
-              <p className="text-2xl font-semibold text-brandColor">
-                ${car.price}
-              </p>
-            </div>
-          </div>
+          <CardDetails car={car} />
         </div>
       </div>
     </div>

@@ -242,6 +242,17 @@
     height: 0;
   }
 }
+.tyreCondition{
+  
+  >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    border-bottom: 1px solid rgb(var(--text-second));
+    padding: 10px 0;
+  }
+}
 .cardetails {
   display: flex;
   gap: 10px;
@@ -487,6 +498,16 @@
   .aboutImageGrid {
     padding: 0.5rem;
   }
+  .details{
+    grid-template-columns: 1fr;
+  }
+  .moredetails{
+    grid-template-columns: repeat(2, 1fr);
+  
+  }
+  .features{
+    flex-wrap: wrap;
+  }
 }
 .onde {
   position: relative;
@@ -496,6 +517,7 @@
   min-height: 100px;
   max-height: 150px;
 }
+
 
 #login {
   .signin-btn,

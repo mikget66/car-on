@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="bg-bgdark text-white pt-36">
       <div className="Container py-4">
-        <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0">
+        <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0 ">
           <Image
             src={"/images/background/phone.png"}
             width={200}
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className=" flex-col lg:flex-row flex items-start justify-start py-6 border-y-2 border-gray-700 lg:my-10 gap-6 ">
+        <div className=" flex-col lg:flex-row flex items-start justify-start py-6 lg:border-y-2 border-gray-700 lg:my-10 gap-6 ">
           <div className=" flex-1 flex flex-col gap-11">
             <h3 className="text-2xl font-bold">Get In Touch</h3>
             <p>
