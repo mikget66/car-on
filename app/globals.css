@@ -242,55 +242,97 @@
     height: 0;
   }
 }
-.cardetails{
+.cardetails {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
   padding: 15px;
   border-radius: 20px;
+  position: sticky;
 
-  .features{
+  top: 100px;
+  height: fit-content;
+
+  .features {
     display: flex;
     gap: 10px;
     margin: 5px 0;
 
-    span{
+    span {
       background: rgb(var(--bglight));
       padding: 3px;
       border-radius: 5px;
     }
   }
 }
-.hoverP {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  padding: 5px 0;
-  font-size: 26px;
-  line-height: 1;
-  font-weight: bold;
-  position: relative;
-  z-index: 1;
-  -webkit-background-clip: text;
-  background-position: -100%;
-  transition: all 0.3s ease-in-out;
-  &:before {
-    display: block;
-    content: "";
-    width: 0;
-    height: 3px;
-    bottom: 5px;
-    left: 0;
-    bottom: -3px;
-    z-index: 0;
-    position: absolute;
-    background: rgb(var(--brandColor));
-    transition: all 0.3s ease-in-out;
-  }
-  &:hover {
-    background-position: 0%;
-    &:before {
-      width: 100%;
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 10px;
+  div {
+    display: flex;
+    gap: 10px;
+
+    div {
+      padding: 10px;
+      background-color: rgb(var(--background));
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+
+      svg {
+        display: inline;
+        font-size: 1.5rem;
+      }
+    }
+    span {
+      display: block;
+      font-size: 0.9rem;
+      color: rgb(var(--text-second));
+      max-width: 250px;
     }
   }
 }
+
+.moredetails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 0px;
+  div {
+    display: flex;
+    gap: 10px;
+
+    div {
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        display: inline;
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      color: rgb(var(--text-second));
+    }
+    span {
+      color: rgb(var(--text));
+
+      display: block;
+      font-size: 1.1rem;
+      font-weight:600;
+      max-width: 250px;
+
+    }
+  }
+}
+
 #explore {
   background-image: url("/svgs/lines-2.svg");
   background-repeat: repeat-y;
@@ -347,10 +389,16 @@
 }
 .controls {
   display: flex;
-  font-size: 32px;
+  font-size: 25px;
   gap: 1rem;
+  img, svg{
+    width: 25px;
+    height: 25px;
+  }
+  a{
+    font-size: 1.3rem;
+  }
   > * {
-    display: inline;
     cursor: pointer;
   }
 }
@@ -423,10 +471,10 @@
     max-width: 760px;
   }
   .controls {
-    font-size: 1.5rem;
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
+    font-size: 1.2rem;
+    img , svg{
+      width: 1.2rem;
+      height: 1.2rem;
     }
   }
 }

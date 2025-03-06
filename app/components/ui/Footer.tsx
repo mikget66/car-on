@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="flex gap-2 mx-1">
             <Link
               href={"/"}
-              className="border-[1px] border-white rounded-md p-2 flex items-center gap-2 hover:bg-bgdark hover:border-bgdark transition-all duration-200 ease-in-out"
+              className="border-[1px] border-white rounded-md p-2 flex items-center gap-0 lg:gap-2 hover:bg-bgdark hover:border-bgdark transition-all duration-200 ease-in-out"
             >
               <FaApple className="text-2xl lg:text-4xl" />
               <span>
@@ -46,7 +46,7 @@ const Footer = () => {
             </Link>
             <Link
               href={"/"}
-              className="border-[1px] border-white rounded-md p-2 flex items-center gap-2 hover:bg-bgdark hover:border-bgdark transition-all duration-200 ease-in-out"
+              className="border-[1px] border-white rounded-md p-2 flex items-center gap-0 lg:gap-2 hover:bg-bgdark hover:border-bgdark transition-all duration-200 ease-in-out"
             >
               <FaGooglePlay className="text-2xl lg:text-4xl" />
               <span>

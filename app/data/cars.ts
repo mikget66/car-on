@@ -17,6 +17,12 @@ const cars = [
     ownerId: "TOY_2020_001",
     regNumber: "CA-1234",
     engineCapacity: 2000,
+    spareKey: true,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: false,
       tempered: false,
@@ -29,9 +35,13 @@ const cars = [
         frTyre: 83,
         rlTyre: 78,
         rrTyre: 77,
-        spareTyre: 95
-      }
-    }
+        spareTyre: 95,
+      },
+      driven: {
+        type: "City Driven",
+        description: "Mostly used for short trips within a city.",
+      },
+    },
   },
   {
     id: 2,
@@ -51,25 +61,42 @@ const cars = [
     ownerId: "HON_2019_002",
     regNumber: "NY-5678",
     engineCapacity: 1800,
+    spareKey: false,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 4,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: true,
       tempered: false,
       flooded: false,
-      imprerfections: [{
-        part: "Left Door",
-        issue: "Small dent",
-        image: "/images/defects/honda-door-dent.jpg"
-      }],
-      repaintedParts: [{ part: "Front Bumper", image: "/images/repainted/honda-bumper.jpg" }],
+      imprerfections: [
+        {
+          part: "Left Door",
+          issue: "Small dent",
+          image: "/images/defects/honda-door-dent.jpg",
+        },
+      ],
+      repaintedParts: [
+        {
+          part: "Front Bumper",
+          image: "/images/repainted/honda-bumper.jpg",
+        },
+      ],
       perfectParts: [{ part: "Interior" }],
       tyers: {
         flTyre: 65,
         frTyre: 63,
         rlTyre: 72,
         rrTyre: 70,
-        spareTyre: 90
-      }
-    }
+        spareTyre: 90,
+      },
+      driven: {
+        type: "Uber Car",
+        description: "Used for ride-sharing services.",
+      },
+    },
   },
   {
     id: 3,
@@ -84,26 +111,36 @@ const cars = [
     rating: 4.9,
     location: "San Francisco, CA",
     bookmarked: ["10"],
-    kmDriven: 12000,
-    ownerShip: "First Owner",
+    kmDriven: 0,
+    ownerShip: "No previous owners",
     ownerId: "TES_2021_003",
-    regNumber: "CA-9012",
+    regNumber: null,
     engineCapacity: 0,
+    spareKey: true,
+    new: true,
+    safetyFeatures: {
+      airbagNo: 8,
+      ABS: true,
+    },
     inspectionReport: {
-      accedental: false,
-      tempered: false,
-      flooded: false,
-      imprerfections: [],
-      repaintedParts: [],
-      perfectParts: [{ part: "Battery" }, { part: "Electronics" }],
+      accedental: null,
+      tempered: null,
+      flooded: null,
+      imprerfections: null,
+      repaintedParts: null,
+      perfectParts: null,
       tyers: {
-        flTyre: 92,
-        frTyre: 91,
-        rlTyre: 89,
-        rrTyre: 88,
-        spareTyre: 100
-      }
-    }
+        flTyre: 100,
+        frTyre: 100,
+        rlTyre: 100,
+        rrTyre: 100,
+        spareTyre: 100,
+      },
+      driven: {
+        type: "Personal Use",
+        description: "Used by an individual for daily commuting.",
+      },
+    },
   },
   {
     id: 4,
@@ -123,25 +160,42 @@ const cars = [
     ownerId: "FOR_2018_004",
     regNumber: "TX-3456",
     engineCapacity: 3500,
+    spareKey: true,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: true,
       tempered: true,
       flooded: false,
-      imprerfections: [{
-        part: "Bed",
-        issue: "Scratches",
-        image: "/images/defects/ford-bed-scratches.jpg"
-      }],
-      repaintedParts: [{ part: "Tailgate", image: "/images/repainted/ford-tailgate.jpg" }],
+      imprerfections: [
+        {
+          part: "Bed",
+          issue: "Scratches",
+          image: "/images/defects/ford-bed-scratches.jpg",
+        },
+      ],
+      repaintedParts: [
+        {
+          part: "Tailgate",
+          image: "/images/repainted/ford-tailgate.jpg",
+        },
+      ],
       perfectParts: [{ part: "Engine" }],
       tyers: {
         flTyre: 45,
         frTyre: 43,
         rlTyre: 55,
         rrTyre: 53,
-        spareTyre: 75
-      }
-    }
+        spareTyre: 75,
+      },
+      driven: {
+        type: "Off-Road Driven",
+        description: "Frequently driven on rough terrains (e.g., dirt roads, mountains).",
+      },
+    },
   },
   {
     id: 5,
@@ -156,27 +210,36 @@ const cars = [
     rating: 4.2,
     location: "Miami, FL",
     bookmarked: ["10"],
-    kmDriven: 15000,
-    ownerShip: "First Owner",
+    kmDriven: 0,
+    ownerShip: "No previous owners",
     ownerId: "CHE_2022_005",
-    regNumber: "FL-7890",
+    regNumber: null,
     engineCapacity: 2500,
-    discountPercentage: 10,
+    spareKey: true,
+    new: true,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
-      accedental: false,
-      tempered: false,
-      flooded: false,
-      imprerfections: [],
-      repaintedParts: [{ part: "Hood", image: "/images/repainted/chevrolet-hood.jpg" }],
-      perfectParts: [{ part: "Interior" }, { part: "Electronics" }],
+      accedental: null,
+      tempered: null,
+      flooded: null,
+      imprerfections: null,
+      repaintedParts: null,
+      perfectParts: null,
       tyers: {
-        flTyre: 88,
-        frTyre: 87,
-        rlTyre: 85,
-        rrTyre: 84,
-        spareTyre: 95
-      }
-    }
+        flTyre: 100,
+        frTyre: 100,
+        rlTyre: 100,
+        rrTyre: 100,
+        spareTyre: 100,
+      },
+      driven: {
+        type: "Company Fleet",
+        description: "Used as part of a company’s vehicle fleet.",
+      },
+    },
   },
   {
     id: 6,
@@ -196,25 +259,42 @@ const cars = [
     ownerId: "NIS_2017_006",
     regNumber: "WA-2345",
     engineCapacity: 2000,
+    spareKey: false,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 4,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: true,
       tempered: true,
       flooded: true,
-      imprerfections: [{
-        part: "Roof",
-        issue: "Water damage",
-        image: "/images/defects/nissan-roof.jpg"
-      }],
-      repaintedParts: [{ part: "Doors", image: "/images/repainted/nissan-doors.jpg" }],
+      imprerfections: [
+        {
+          part: "Roof",
+          issue: "Water damage",
+          image: "/images/defects/nissan-roof.jpg",
+        },
+      ],
+      repaintedParts: [
+        {
+          part: "Doors",
+          image: "/images/repainted/nissan-doors.jpg",
+        },
+      ],
       perfectParts: [],
       tyers: {
         flTyre: 35,
         frTyre: 33,
         rlTyre: 40,
         rrTyre: 38,
-        spareTyre: 80
-      }
-    }
+        spareTyre: 80,
+      },
+      driven: {
+        type: "Rental Car",
+        description: "Previously used as a rental vehicle.",
+      },
+    },
   },
   {
     id: 7,
@@ -234,15 +314,23 @@ const cars = [
     ownerId: "HYU_2020_007",
     regNumber: "IL-6789",
     engineCapacity: 2000,
+    spareKey: true,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: false,
       tempered: false,
       flooded: false,
-      imprerfections: [{
-        part: "Trunk",
-        issue: "Small scratch",
-        image: "/images/defects/hyundai-trunk.jpg"
-      }],
+      imprerfections: [
+        {
+          part: "Trunk",
+          issue: "Small scratch",
+          image: "/images/defects/hyundai-trunk.jpg",
+        },
+      ],
       repaintedParts: [],
       perfectParts: [{ part: "Engine" }, { part: "Transmission" }],
       tyers: {
@@ -250,9 +338,13 @@ const cars = [
         frTyre: 73,
         rlTyre: 70,
         rrTyre: 68,
-        spareTyre: 85
-      }
-    }
+        spareTyre: 85,
+      },
+      driven: {
+        type: "Highway Driven",
+        description: "Primarily used for long-distance highway travel.",
+      },
+    },
   },
   {
     id: 8,
@@ -267,26 +359,36 @@ const cars = [
     rating: 4.7,
     location: "Phoenix, AZ",
     bookmarked: [],
-    kmDriven: 28000,
-    ownerShip: "First Owner",
+    kmDriven: 0,
+    ownerShip: "No previous owners",
     ownerId: "KIA_2021_008",
-    regNumber: "AZ-0123",
+    regNumber: null,
     engineCapacity: 2000,
+    spareKey: true,
+    new: true,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
-      accedental: false,
-      tempered: false,
-      flooded: false,
-      imprerfections: [],
-      repaintedParts: [],
-      perfectParts: [{ part: "Body" }, { part: "Interior" }],
+      accedental: null,
+      tempered: null,
+      flooded: null,
+      imprerfections: null,
+      repaintedParts: null,
+      perfectParts: null,
       tyers: {
-        flTyre: 90,
-        frTyre: 89,
-        rlTyre: 88,
-        rrTyre: 87,
-        spareTyre: 95
-      }
-    }
+        flTyre: 100,
+        frTyre: 100,
+        rlTyre: 100,
+        rrTyre: 100,
+        spareTyre: 100,
+      },
+      driven: {
+        type: "Weekend Car",
+        description: "Driven occasionally, mainly on weekends or special occasions.",
+      },
+    },
   },
   {
     id: 9,
@@ -306,25 +408,42 @@ const cars = [
     ownerId: "SUB_2019_009",
     regNumber: "CO-4567",
     engineCapacity: 2500,
+    spareKey: true,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: true,
       tempered: false,
       flooded: false,
-      imprerfections: [{
-        part: "Undercarriage",
-        issue: "Off-road scratches",
-        image: "/images/defects/subaru-undercarriage.jpg"
-      }],
-      repaintedParts: [{ part: "Front Skid Plate", image: "/images/repainted/subaru-skid.jpg" }],
+      imprerfections: [
+        {
+          part: "Undercarriage",
+          issue: "Off-road scratches",
+          image: "/images/defects/subaru-undercarriage.jpg",
+        },
+      ],
+      repaintedParts: [
+        {
+          part: "Front Skid Plate",
+          image: "/images/repainted/subaru-skid.jpg",
+        },
+      ],
       perfectParts: [{ part: "AWD System" }],
       tyers: {
         flTyre: 60,
         frTyre: 58,
         rlTyre: 62,
         rrTyre: 60,
-        spareTyre: 85
-      }
-    }
+        spareTyre: 85,
+      },
+      driven: {
+        type: "Commercial Use",
+        description: "Used for business purposes, such as deliveries.",
+      },
+    },
   },
   {
     id: 10,
@@ -344,6 +463,12 @@ const cars = [
     ownerId: "VW_2021_010",
     regNumber: "GA-8901",
     engineCapacity: 2000,
+    spareKey: true,
+    new: false,
+    safetyFeatures: {
+      airbagNo: 6,
+      ABS: true,
+    },
     inspectionReport: {
       accedental: false,
       tempered: false,
@@ -356,10 +481,14 @@ const cars = [
         frTyre: 76,
         rlTyre: 74,
         rrTyre: 73,
-        spareTyre: 90
-      }
-    }
-  }
+        spareTyre: 90,
+      },
+      driven: {
+        type: "Taxi",
+        description: "Used as a taxi service vehicle.",
+      },
+    },
+  },
 ];
 
 export default cars;

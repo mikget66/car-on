@@ -15,7 +15,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     }
     const Article = await response.json();
     const parsedContent = md.render(Article?.content);
-    console.log(Article);
     return (
       <div className="flex flex-col items-center py-5 gap-3">
         <h2 className="text-center text-3xl bg-light p-3 shadow-lg">
