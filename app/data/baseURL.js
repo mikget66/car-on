@@ -1,3 +1,3 @@
-const baseUrl = "https://car-on-lp8q.vercel.app/";
+const baseUrl = "https://car-on.vercel.app/";
 
 export default baseUrl
