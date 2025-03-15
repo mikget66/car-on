@@ -236,11 +236,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  *:nth-child(4n + 2) .imgCont,
-  *:nth-child(4n + 3) .imgCont {
-    display: none;
-    height: 0;
-  }
 }
 .tyreCondition{
   

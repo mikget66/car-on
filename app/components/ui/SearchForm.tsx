@@ -4,19 +4,18 @@ const SearchForm = () => {
   return (
     <form
       action=""
-      className="flex flex-col md:flex-row items-center justify-between 
-      bg-background p-5 rounded-lg md:rounded-full 
-      w-5/6 md:w-1/2 mb-10 "
+      className="flex flex-col lg:flex-row lg:items-center justify-between 
+      gap-4 bg-background p-5 rounded-3xl  xl:rounded-full     w-5/6  xl:w-1/2 mb-10 "
     >
-      <div className="flex flex-row items-center sm:w-full md:w-30">
+      <div className="flex flex-row items-center sm:w-full md:w-30 py-3">
         <IoSearch className="mr-3 text-3xl" />
         <input
           type="text"
           placeholder="Search for your favorite cars"
-          className="bg-transparent border-b-brandColor"
+          className="bg-transparent border-b-brandColor focus:outline-none"
         />
       </div>
-      <div className="flex flex-row items-center sm:w-full md:w-30">
+      <div className="flex flex-row items-center sm:w-full md:w-30 py-3">
         <IoLocationOutline className="mr-3 text-3xl" />
         <select
           name=""
@@ -29,7 +28,7 @@ const SearchForm = () => {
           <option value=""></option>
         </select>
       </div>
-      <button className="bg-brandColor p-5 rounded-full sm:w-full md:w-80">
+      <button className="bg-brandColor p-5 rounded-full w-full lg:w-fit text-nowrap ">
         Search cars
       </button>
     </form>

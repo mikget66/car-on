@@ -43,7 +43,7 @@ const Articles = async () => {
                 <p className="text-textlight">{article.description}</p>
               </div>
               <div className="flex justify-end items-start">
-                <div className="h-[300px] w-full overflow-hidden relative rounded-xl">
+                <div className="h-[180px] lg:h-[300px] w-full overflow-hidden relative rounded-xl">
                   <Image
                     src={article.image}
                     alt={article.title}

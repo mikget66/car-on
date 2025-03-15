@@ -54,7 +54,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="py-4">
       <div className="Container flex flex-col items-center gap-8">
         {" "}
         {/* Fixed className casing */}

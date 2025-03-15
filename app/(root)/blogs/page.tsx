@@ -23,7 +23,7 @@ const page = async () => {
 
     const carArticles = await response.json();
     return (
-      <div>
+      <div className="py-4">
         <div className="flex flex-col items-center text-center">
           <span className="uppercase font-semibold">Blog Page</span>
           <h2 className="text-4xl font-bold">

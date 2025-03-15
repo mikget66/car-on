@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,11 +43,7 @@ const CarSlider = () => {
     fetchCars();
   }, []);
 
-  if (loading)
-    return (
-        <CarSlideSkeleton />
-      
-    );
+  if (loading) return <CarSlideSkeleton />;
   if (error) return <div>{error}</div>;
 
   return (
@@ -79,12 +74,12 @@ const CarSlider = () => {
                       </div>
                     )}
                     <Image
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full lg:h-full md:h-[344px] h-[260px]"
                       src={car.images[0]}
                       alt={car.carBrand}
                       width={540}
                       height={344}
-                      style={{ width: "auto", height: "100%" }}
+                      style={{ width: "auto" }}
                     />
                   </div>
                   <div className="p-4">
@@ -97,10 +92,10 @@ const CarSlider = () => {
                     <div className="text-brandColor text-3xl font-bold block my-3">
                       ${car.price}
                     </div>
-                    <hr className="border-textlight opacity-85" />
+                    <hr  className="border-textlight opacity-85" />
                     <ul>
                       <li>
-                        <GiSpeedometer /> {car.topSpeed} MILES
+                        <GiSpeedometer /> {car.kmDriven} KM
                       </li>
                       <li>
                         <BsFuelPump /> {car.fuelType}

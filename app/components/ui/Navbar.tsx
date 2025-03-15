@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
-        pathName !== "/" ? "bg-background sticky rounded-none shadow-lg" : "m-3"
+        pathName !== "/" ? "bg-background sticky rounded-none shadow-lg p-3 mb" : "m-3"
       }`}
     >
       <div className="Container w-full">
@@ -62,7 +62,7 @@ const Navbar = () => {
             </Link>
             <ThemeSwitch />
             <Link
-              href={"/signin"}
+              href={"/sell"}
               className="hidden  md:flex items-center gap-2  bg-brandColor py-1 px-3 rounded-full text-white"
             >
               <IoMdAddCircleOutline />
@@ -92,14 +92,19 @@ const Navbar = () => {
                 <li className="bg-light p-2 rounded-md">{link.name}</li>
               </Link>
             ))}
-            <Link
-              href={"/signin"}
+            
+            <li>
+
+             <Link
+              href="/sell"
               className="flex items-center  bg-brandColor py-1 px-3 rounded-full text-white"
-            >
+              onClick={closeResponsiveNav}
+              >
               <IoMdAddCircleOutline />
               <div className=" w-1 h-fit bg-white mx-1"></div>
               <span>Sell your car</span>
             </Link>
+              </li>
           </ul>
         </div>
       </div>

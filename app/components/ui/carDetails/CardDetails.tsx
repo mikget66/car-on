@@ -5,7 +5,7 @@ import { Car } from "@/types/car";
 
 const CardDetails = ({ car }: { car: Car }) => {
   return (
-    <div className="bg-background cardetails mb-10">
+    <div className="bg-background cardetails mt-7 mb-10">
       <h2 className="text-2xl font-semibold">{`${car.year} ${car.carBrand} ${car.carModel}`}</h2>
       <span>{car.transmission}</span>
       <div className="features">

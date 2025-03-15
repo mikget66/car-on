@@ -1,32 +1,24 @@
 "use client";
-import Link from "next/link";
+
 import Image from "next/image";
 import { Car } from "@/types/car";
 import baseUrl from "@/app/data/baseURL";
 import { useState, useEffect, useRef } from "react";
 
 import { PiEngine, PiThermometerHot } from "react-icons/pi";
-import { MdFullscreen } from "react-icons/md";
 import { FaCar, FaCarBurst, FaGears } from "react-icons/fa6";
 import { IoKey } from "react-icons/io5";
-import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { AiTwotoneSafetyCertificate } from "react-icons/ai";
-import {
-  FaCheckCircle,
-  FaExternalLinkAlt,
-  FaRoad,
-  FaUsers,
-  FaWater,
-} from "react-icons/fa";
+import { FaCheckCircle, FaRoad, FaUsers, FaWater } from "react-icons/fa";
 import { BsSpeedometer2, BsFillFuelPumpFill } from "react-icons/bs";
 import { GiGearStick, GiCarWheel } from "react-icons/gi";
-
-import StarRating from "@/app/components/ui/StarRating";
 
 import { Caveat } from "next/font/google";
 import AccordionComponent from "@/app/components/ui/AccordionComponent";
 import TyreCondition from "@/app/components/ui/carDetails/TyreCondition";
 import CardDetails from "@/app/components/ui/carDetails/CardDetails";
+import ImageGrid from "@/app/components/ui/carDetails/ImageGrid";
+import CarDetailHeader from "@/app/components/ui/carDetails/CarDetailHeader";
 const caveat = Caveat({ subsets: ["latin"] });
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
@@ -84,72 +76,9 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div className="bg-light">
       <div className="Container flex flex-col gap-6 py-4 ">
-        <div className="flex justify-between items-center gap-2">
-          <div>
-            <h2 className="text-xl lg:text-[2.2rem] font-medium">{`${car.year} ${car.carBrand} ${car.carModel}`}</h2>
-            <div className="my-2 flex flex-row items-center gap-1 lg:gap-3">
-              <Link href={"/"}>{car.carBrand}</Link>{" "}
-              <FaExternalLinkAlt className="inline" />/
-              <StarRating rating={car.rating} />{" "}
-              <span className="text-brandColor">({car.rating})</span>
-            </div>
-            <p className="text-textlight">{car.location}</p>
-          </div>
+        <CarDetailHeader car={car} />
+        <ImageGrid images={car.images} />
 
-          <div>
-            {isBookmarked ? (
-              <div className="text-brandColor">
-                <IoMdHeart
-                  className="inline mr-1"
-                  onClick={() => setIsBookmarked(!isBookmarked)}
-                />
-                <span>saved</span>
-              </div>
-            ) : (
-              <div>
-                <IoMdHeartEmpty
-                  className="inline mr-1"
-                  onClick={() => setIsBookmarked(!isBookmarked)}
-                />
-                <span>save this car</span>
-              </div>
-            )}
-            <p>{car.bookmarked.length} people bookmarked this car</p>
-          </div>
-        </div>
-
-        <div className="rounded-xl overflow-hidden grid grid-cols-3 grid-rows-2 gap-2 h-[250px] sm:h-[300px] md:h-[350px] xl:h-[480px] 2xl:h-[540px] relative">
-          <div className="row-span-full col-span-full md:row-span-2 md:col-span-2 relative ">
-            <Image
-              src={car.images[0]}
-              fill
-              alt="carImage"
-              className="object-cover"
-            />
-          </div>
-          <div className="hidden md:block relative w-full h-full">
-            <Image
-              src={car.images[0]}
-              alt="Car image"
-              fill
-              className="object-cover w-full h-full"
-            />
-          </div>
-
-          <div className="hidden md:block relative w-full h-full">
-            <Image
-              src={car.images[0]}
-              alt="Car image"
-              fill
-              className="object-cover w-full h-full"
-            />
-          </div>
-
-          <div className="absolute bottom-0 text-sm font-medium right-0 z-10 m-4 p-2 rounded-lg flex flex-row items-center cursor-pointer btn-light">
-            <MdFullscreen className="inline text-[1.5rem]" />
-            View photos
-          </div>
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-2">
           <div className="flex flex-col gap-4 border-b-[1px] border-gray-600 pb-10">
             <h3 className="text-4xl font-medium my-4">
