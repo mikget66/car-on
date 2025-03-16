@@ -1,8 +1,37 @@
-import cars from "../../data/cars";
+// import cars from "../../data/cars";
+
+// export async function GET() {
+
+//   return new Response(JSON.stringify(cars), {
+//     headers: { "Content-Type": "application/json" },
+//   });
+// }
+import prisma from "@/lib/prisma";
 
 export async function GET() {
-
-  return new Response(JSON.stringify(cars), {
-    headers: { "Content-Type": "application/json" },
-  });
+  try {
+    const cars = await prisma.car.findMany({
+      include: {
+        safetyFeatures: true,
+        inspectionReport: {
+          include: {
+            tyres: true,
+            driven: true,
+            imprerfections: true,
+            repaintedParts: true,
+            perfectParts: true,
+          },
+        },
+      },
+    });
+    return new Response(JSON.stringify(cars), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Error fetching cars:", error);
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch cars" }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
 }

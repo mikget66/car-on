@@ -1,7 +1,3 @@
-Here's the updated **README** with a **Future Plans** section:  
-
----
-
 # 🚗 CarOn  
 
 CarOn is a modern and sleek web application built with [Next.js](https://nextjs.org) that provides a comprehensive listing of new and used cars, along with a variety of car-related services. Designed with responsiveness and user experience in mind, CarOn offers a seamless and visually appealing platform for car enthusiasts and service seekers alike.  

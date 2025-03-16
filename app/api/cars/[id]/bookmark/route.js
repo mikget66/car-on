@@ -1,45 +1,60 @@
-import cars from "../../../../data/cars";
+// app/api/cars/[id]/bookmark/route.ts
+
+import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function POST(request, { params }) {
-  try {
-    const { id } = await params;
-    const { userId } = await request.json();
+  // Extract the car ID from the URL params
+  const { id } = params;
+  // Parse the request body for the userId
+  const { userId } = await request.json();
 
-    // Validate user ID
-    if (!userId) {
-      return new Response(JSON.stringify({ error: "User ID is required" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    // Find car
-    const carIndex = cars.findIndex((car) => car.id === parseInt(id));
-    if (carIndex === -1) {
-      return new Response(JSON.stringify({ error: "Car not found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    // Convert numeric IDs to numbers for backward compatibility
-    const userIdValue = typeof userId === 'string' && !isNaN(userId) 
-      ? parseInt(userId, 10)
-      : userId;
-
-    // Add bookmark if not exists
-    const car = cars[carIndex];
-    if (!car.bookmarked.includes(userIdValue)) {
-      car.bookmarked.push(userIdValue);
-    }
-
-    return new Response(JSON.stringify({ success: true, bookmarked: car.bookmarked }), {
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: `Internal server error: ${error}` }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+  // Find the car record
+  const car = await prisma.car.findUnique({ where: { id: parseInt(id, 10) } });
+  if (!car) {
+    return NextResponse.json({ error: "Car not found" }, { status: 404 });
   }
+
+  // Ensure the bookmarked field is an array (it might be null/undefined)
+  let bookmarks = Array.isArray(car.bookmarked) ? car.bookmarked : [];
+
+  // If the user hasn't already bookmarked the car, add the userId
+  if (!bookmarks.includes(userId)) {
+    bookmarks.push(userId);
+  }
+
+  // Update the car record
+  const updatedCar = await prisma.car.update({
+    where: { id: parseInt(id, 10) },
+    data: { bookmarked: bookmarks },
+  });
+
+  return NextResponse.json(updatedCar);
+}
+
+export async function DELETE(request, { params }) {
+  // Extract the car ID from URL params
+  const { id } = params;
+  // Parse the request body for the userId
+  const { userId } = await request.json();
+
+  // Find the car record
+  const car = await prisma.car.findUnique({ where: { id: parseInt(id, 10) } });
+  if (!car) {
+    return NextResponse.json({ error: "Car not found" }, { status: 404 });
+  }
+
+  // Ensure the bookmarked field is an array
+  let bookmarks = Array.isArray(car.bookmarked) ? car.bookmarked : [];
+
+  // Remove the userId from the bookmarks array
+  bookmarks = bookmarks.filter((bookmark) => bookmark !== userId);
+
+  // Update the car record
+  const updatedCar = await prisma.car.update({
+    where: { id: parseInt(id, 10) },
+    data: { bookmarked: bookmarks },
+  });
+
+  return NextResponse.json(updatedCar);
 }

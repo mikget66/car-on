@@ -24,7 +24,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
     <div className="rounded-xl overflow-hidden grid grid-cols-3 grid-rows-2 gap-2 h-[210px] sm:h-[330px] md:h-[350px] xl:h-[480px] 2xl:h-[540px] relative">
       <div className="row-span-full col-span-full md:row-span-2 md:col-span-2 relative">
         {/* Wrap Image in a div for the onClick event */}
-        <div className="w-full h-full" onClick={() => openImageViewer(0)}>
+        <div className="w-full h-full cursor-pointer" onClick={() => openImageViewer(0)}>
           <Image
             src={images[0]}
             fill
@@ -33,7 +33,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
           />
         </div>
       </div>
-      <div className="hidden md:block relative w-full h-full" onClick={() => openImageViewer(1)}>
+      <div className="hidden md:block relative w-full h-full cursor-pointer" onClick={() => openImageViewer(1)}>
         <Image
           src={images[1]}
           alt="Car image"
@@ -41,7 +41,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="hidden md:block relative w-full h-full" onClick={() => openImageViewer(2)}>
+      <div className="hidden md:block relative w-full h-full cursor-pointer" onClick={() => openImageViewer(2)}>
         <Image
           src={images[2]}
           alt="Car image"

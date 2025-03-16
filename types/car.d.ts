@@ -39,7 +39,7 @@ export type Car = {
     perfectParts: Array<{
       part: string;
     }> | null;
-    tyers: {
+    tyres: {
       flTyre: number;
       frTyre: number;
       rlTyre: number;

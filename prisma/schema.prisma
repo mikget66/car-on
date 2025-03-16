@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Car {
+  id                 Int                @id @default(autoincrement())
+  year               Int
+  carBrand           String
+  carModel           String
+  price              Int
+  topSpeed           Int
+  fuelType           String
+  transmission       String
+  images             String[]
+  rating             Float
+  location           String
+  bookmarked         Json               // supports (number | string)[]
+  kmDriven           Int
+  ownerShip          String
+  ownerId            String             // kept as string for flexibility
+  regNumber          String?
+  engineCapacity     Int
+  spareKey           Boolean
+  new                Boolean
+  discountPercentage Float?
+
+  safetyFeatures     SafetyFeatures?    @relation("CarSafetyFeatures")
+  inspectionReport   InspectionReport?  @relation("CarInspectionReport")
+}
+
+model SafetyFeatures {
+  id       Int   @id @default(autoincrement())
+  airbagNo Int
+  ABS      Boolean
+
+  car      Car   @relation("CarSafetyFeatures", fields: [carId], references: [id])
+  carId    Int   @unique
+}
+
+model InspectionReport {
+  id              Int              @id @default(autoincrement())
+  accedental      Boolean?
+  tempered        Boolean?
+  flooded         Boolean?
+
+  // One-to-one relations
+  tyres           Tyres?           @relation(fields: [tyresId], references: [id])
+  tyresId         Int?             @unique
+
+  driven          Driven?          @relation(fields: [drivenId], references: [id])
+  drivenId        Int?             @unique
+
+  // One-to-many relations for arrays of objects
+  imprerfections Imperfection[]
+  repaintedParts  RepaintedPart[]
+  perfectParts    PerfectPart[]
+
+  car             Car              @relation("CarInspectionReport", fields: [carId], references: [id])
+  carId           Int              @unique
+}
+
+model Tyres {
+  id        Int  @id @default(autoincrement())
+  flTyre    Int
+  frTyre    Int
+  rlTyre    Int
+  rrTyre    Int
+  spareTyre Int
+
+  inspectionReport InspectionReport?
+}
+
+model Driven {
+  id          Int        @id @default(autoincrement())
+  type        DrivenType
+  description String
+
+  inspectionReport InspectionReport?
+}
+
+enum DrivenType {
+  CityDriven
+  UberCar
+  HighwayDriven
+  OffRoadDriven
+  CompanyFleet
+  PersonalUse
+  RentalCar
+  Taxi
+  WeekendCar
+  CommercialUse
+  GovernmentVehicle
+  CourierDelivery
+  New
+}
+
+model Imperfection {
+  id                 Int                @id @default(autoincrement())
+  part               String
+  issue              String
+  image              String
+
+  inspectionReport   InspectionReport   @relation(fields: [inspectionReportId], references: [id])
+  inspectionReportId Int
+}
+
+model RepaintedPart {
+  id                 Int                @id @default(autoincrement())
+  part               String
+  image              String
+
+  inspectionReport   InspectionReport   @relation(fields: [inspectionReportId], references: [id])
+  inspectionReportId Int
+}
+
+model PerfectPart {
+  id                 Int                @id @default(autoincrement())
+  part               String
+
+  inspectionReport   InspectionReport   @relation(fields: [inspectionReportId], references: [id])
+  inspectionReportId Int
+}
