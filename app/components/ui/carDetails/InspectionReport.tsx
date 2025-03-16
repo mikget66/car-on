@@ -50,7 +50,7 @@ const InspectionReport = ({ car }: { car: Car }) => {
             {car.inspectionReport.flooded ? (
               <span>Flooded</span>
             ) : (
-              <span>Not Flooded </span>
+              <span>Not Flooded</span>
             )}
           </div>
         </div>
