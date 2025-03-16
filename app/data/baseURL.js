@@ -1,3 +1,3 @@
-const baseUrl = "http://localhost:3000/";
+const baseUrl = "https://car-on.vercel.app/";
 
 export default baseUrl
