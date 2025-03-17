@@ -1,7 +1,6 @@
 "use client";
 
 import { Car } from "@/types/car";
-import baseUrl from "@/app/data/baseURL";
 import { useState, useEffect } from "react";
 
 import CardDetails from "@/app/components/ui/carDetails/CardDetails";
@@ -13,6 +12,8 @@ import CarDetailsSkeleton from "@/app/components/ui/skeletons/CarDetailsSkeleton
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const [car, setCar] = useState<Car | null>(null);
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
   // Fetch car details
   useEffect(() => {
@@ -33,9 +34,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
     fetchCarDetails();
   }, [params]);
 
-  if (!car) return <CarDetailsSkeleton/>;
+  if (!car) return <CarDetailsSkeleton />;
 
-  console.log(car);
   return (
     <div className="bg-light">
       <div className="Container flex flex-col gap-6 py-4 ">

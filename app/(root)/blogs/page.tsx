@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import baseUrl from '@/app/data/baseURL'
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
 
 type Article = {
   id: string;

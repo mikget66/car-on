@@ -1,6 +1,6 @@
 import Image from "next/image";
 import markdownit from "markdown-it";
-import baseUrl from '@/app/data/baseURL'
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const md = markdownit();

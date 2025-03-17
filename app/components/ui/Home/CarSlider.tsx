@@ -15,7 +15,7 @@ import { SwiperButtons } from "./SwiperButtons";
 import CarSlideSkeleton from "@/app/components/ui/skeletons/CarSlideSkeleton";
 
 import Link from "next/link";
-import baseUrl from "@/app/data/baseURL";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 import { Car } from "@/types/car";
 
 const CarSlider = () => {
