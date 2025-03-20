@@ -8,14 +8,15 @@ import { Pagination, A11y } from "swiper/modules";
 import { CiHeart } from "react-icons/ci";
 import { VscFlame } from "react-icons/vsc";
 import { TbSwitch3 } from "react-icons/tb";
-import { BsFuelPump } from "react-icons/bs";
+import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GiSpeedometer } from "react-icons/gi";
+import { TfiBolt } from "react-icons/tfi";
 
 import { SwiperButtons } from "./SwiperButtons";
 import CarSlideSkeleton from "@/app/components/ui/skeletons/CarSlideSkeleton";
 
 import Link from "next/link";
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 import { Car } from "@/types/car";
 
 const CarSlider = () => {
@@ -62,7 +63,7 @@ const CarSlider = () => {
             <SwiperSlide key={car.id}>
               <Link href={`/cars/${car.id}`}>
                 <div className="card bg-background rounded-2xl overflow-hidden">
-                  <div className="shine h-80 overflow-hidden">
+                  <div className="shine h-fit overflow-hidden">
                     <span></span>
                     <div className="absolute top-5 right-5 text-brandColor text-2xl bg-light rounded-full p-2 z-10">
                       <CiHeart />
@@ -73,14 +74,15 @@ const CarSlider = () => {
                         {car.discountPercentage}% off
                       </div>
                     )}
-                    <Image
-                      className="object-cover w-full lg:h-full md:h-[344px] h-[260px]"
-                      src={car.images[0]}
-                      alt={car.carBrand}
-                      width={540}
-                      height={344}
-                      style={{ width: "auto" }}
-                    />
+                  
+                    <div className="relative w-full h-[200px]  sm:h-[220px] md:h-[254px] lg:h-[300px]">
+                      <Image
+                        className="object-cover"
+                        src={car.images[0]}
+                        alt={car.carBrand}
+                        fill
+                      />
+                    </div>
                   </div>
                   <div className="p-4">
                     <h4 className="text-3xl">
@@ -92,13 +94,18 @@ const CarSlider = () => {
                     <div className="text-brandColor text-3xl font-bold block my-3">
                       ${car.price}
                     </div>
-                    <hr  className="border-textlight opacity-85" />
+                    <hr className="border-textlight opacity-85" />
                     <ul>
                       <li>
                         <GiSpeedometer /> {car.kmDriven} KM
                       </li>
                       <li>
-                        <BsFuelPump /> {car.fuelType}
+                        {car.fuelType == "Electric" ? (
+                          <TfiBolt />
+                        ) : (
+                          <BsFillFuelPumpFill />
+                        )}
+                        {car.fuelType}
                       </li>
                       <li>
                         <TbSwitch3 /> {car.transmission}

@@ -1,16 +1,12 @@
-
-
-
 const carArticles = [
   {
     id: 1,
     date: "2023-10-01",
-    category: "Electric Vehicles",
+    category: "electric",
     title: "The Rise of Electric Cars",
-    author: "Eleanor Volt",
     description:
       "How electric vehicles are transforming the automotive industry and what to expect in the future.",
-    image: "/images/the-rise-of-electric-cars.png",
+    image: "/images/articles/the-rise-of-electric-cars.png",
     content: `
   # The Rise of Electric Cars
   
@@ -25,16 +21,17 @@ const carArticles = [
   
   *Join us as we explore the latest developments in electric vehicles and what they mean for the future of transportation!*
     `,
+    saved:["user10"]
   },
   {
     id: 2,
     date: "2023-09-25",
-    category: "Luxury Cars",
+    category: "news",
     title: "Top 10 Luxury Cars of 2023",
     author: "Sebastian Royce",
     description:
       "A look at the most luxurious and high-performance cars available this year.",
-    image: "/images/top-10-luxurious.avif",
+    image: "/images/articles/top-10-luxurious.avif",
     content: `
   # Top 10 Luxury Cars of 2023
   
@@ -49,16 +46,17 @@ const carArticles = [
   
   *From the stunning designs to the exhilarating drives, discover what makes these cars the epitome of luxury!*
     `,
+    
+    saved:["user10"]
   },
   {
     id: 3,
     date: "2023-09-20",
-    category: "Classic Cars",
+    category: "Maintenance",
     title: "Restoring Vintage Cars: A Beginner's Guide",
-    author: "Henry Classic",
     description:
       "Tips and tricks for restoring classic cars to their former glory.",
-    image: "/images/Restoring-Vintage-Cars.jpg",
+    image: "/images/articles/Restoring-Vintage-Cars.jpg",
     content: `
   # Restoring Vintage Cars: A Beginner's Guide
   
@@ -73,16 +71,17 @@ const carArticles = [
   
   *With patience and passion, you can turn a forgotten relic into a stunning masterpiece!*
     `,
+    
+    saved:["user10"]
   },
   {
     id: 4,
     date: "2023-09-15",
-    category: "Sports Cars",
+    category: "Innovations",
     title: "The Fastest Sports Cars in the World",
-    author: "Vicky Velocity",
     description:
       "Discover the fastest and most powerful sports cars that dominate the roads.",
-    image: "/images/The-Fastest-Sports-Cars.avif",
+    image: "/images/articles/The-Fastest-Sports-Cars.avif",
     content: `
   # The Fastest Sports Cars in the World
   
@@ -97,16 +96,17 @@ const carArticles = [
   
   *Join us as we delve into the specifications and features that make these cars the kings of the road!*
     `,
+    
+    saved:["user10"]
   },
   {
     id: 5,
     date: "2023-09-10",
-    category: "Car Maintenance",
+    category: "Maintenance",
     title: "Essential Car Maintenance Tips",
-    author: "Mia Mechanic",
     description:
       "Keep your car running smoothly with these essential maintenance tips.",
-    image: "/images/Essential-Car-Maintenance-Tips.webp",
+    image: "/images/articles/Essential-Car-Maintenance-Tips.webp",
     content: `
   # Essential Car Maintenance Tips
   
@@ -121,16 +121,17 @@ const carArticles = [
   
   *With these simple practices, you can extend the life of your vehicle and enhance its performance!*
     `,
+    
+    saved:["user10"]
   },
   {
     id: 6,
     date: "2023-09-05",
-    category: "Autonomous Vehicles",
+    category: "Innovations",
     title: "The Future of Self-Driving Cars",
-    author: "Alex Autonomy",
     description:
       "Exploring the technology behind autonomous vehicles and their potential impact on transportation.",
-    image: "/images/The-Future-of-Self-Driving-Cars.jpg",
+    image: "/images/articles/The-Future-of-Self-Driving-Cars.jpg",
     content: `
   # The Future of Self-Driving Cars
   
@@ -149,11 +150,10 @@ const carArticles = [
   {
     id: 7,
     date: "2023-08-28",
-    category: "SUV",
+    category: "news",
     title: "Best Family SUVs for 2023",
-    author: "Olivia Road",
     description: "Discover the most reliable and spacious SUVs perfect for family adventures.",
-    image: "/images/family-suvs.jpg",
+    image: "/images/articles/family-suvs.jpg",
     content: `
   # Best Family SUVs for 2023
   
@@ -167,16 +167,17 @@ const carArticles = [
   Compare these modern family haulers with [classic car designs](/carArticles/3) from previous eras.
 
   *From road trips to daily commutes, find the perfect SUV for your family's needs!*
-    `
+    `,
+
+    saved:["user10"]
   },
   {
     id: 8,
     date: "2023-08-20",
-    category: "Hybrid Vehicles",
+    category: "electric",
     title: "Hybrid vs Electric: Which is Right for You?",
-    author: "Eco Driver",
     description: "A comprehensive comparison of hybrid and electric vehicle technologies.",
-    image: "/images/hybrid-vs-electric.jpg",
+    image: "/images/articles/hybrid-vs-electric.jpg",
     content: `
   # Hybrid vs Electric: Which is Right for You?
   
@@ -184,20 +185,19 @@ const carArticles = [
   - **Fuel Efficiency**: Hybrids combine gas and electric, while EVs run solely on batteries
   - **Charging Needs**: EVs require charging infrastructure, hybrids refuel like traditional cars
   - **Environmental Impact**: EVs offer zero emissions, hybrids reduce emissions
-
+  
   Learn more about [pure electric vehicles](/carArticles/1) and their advantages.
-
+  
   *We break down the costs, environmental impact, and practicality of both options to help you decide!*
-    `
+    `,    saved:["user10"]
   },
   {
     id: 9,
     date: "2023-08-15",
-    category: "Racing",
+    category: "Innovations",
     title: "The Evolution of Motorsports Technology",
-    author: "Speed Demon",
     description: "How racing technology influences mainstream automotive innovation.",
-    image: "/images/motorsport-tech.jpg",
+    image: "/images/articles/motorsport-tech.jpg",
     content: `
   # The Evolution of Motorsports Technology
   
@@ -207,11 +207,12 @@ const carArticles = [
   - **Aerodynamic Designs**: Originally developed for track performance
   - **Hybrid Engines**: F1's MGU-K system influences [hybrid road cars](/carArticles/8)
   - **Safety Features**: Crash structures and helmet tech trickle down to consumer vehicles
-
+  
   Explore how these technologies compare to [autonomous vehicle systems](/carArticles/6).
-
+  
   *Discover how the racetrack continues to drive innovation in everyday vehicles!*
-    `
+    `,
+    saved:["user10"]
   }
 ];
 

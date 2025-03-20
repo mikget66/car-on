@@ -125,3 +125,27 @@ model PerfectPart {
   inspectionReport   InspectionReport   @relation(fields: [inspectionReportId], references: [id])
   inspectionReportId Int
 }
+
+model Author {
+  id          String   @id
+  name        String
+  email       String   @unique
+  password    String
+  username    String   @unique
+  description String
+  avatar      String?
+  articles    Article[]
+}
+
+model Article {
+  id          Int       @id @default(autoincrement())
+  date        DateTime
+  category    String
+  title       String
+  description String
+  image       String
+  content     String
+  saved       Json?
+  author      Author    @relation(fields: [authorId], references: [id])
+  authorId    String
+}

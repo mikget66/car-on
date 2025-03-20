@@ -18,6 +18,7 @@ export default {
       },
       backgroundImage: {
         CarImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0) 100%), url('/images/background/main.jpeg')",
+        blogImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0) 100%), url('/images/background/blog-bg1.jpeg')",
       },
     },
     fontFamily: {

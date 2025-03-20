@@ -29,7 +29,9 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
-        pathName !== "/" ? "bg-background sticky rounded-none shadow-lg p-3 mb" : "m-3"
+        pathName === "/" || pathName === "/blogs"
+          ? "m-3"
+          : "bg-background sticky rounded-none shadow-lg p-3 mb"
       }`}
     >
       <div className="Container w-full">
@@ -44,15 +46,20 @@ const Navbar = () => {
 
           <div>
             <ul className="hidden md:flex justify-start gap-4 ">
-              {links.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.name}
-                  className="text-lg font-semibold hover:text-brandColor"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isActive = pathName === link.href;
+                return (
+                  <Link
+                    href={link.href}
+                    key={link.name}
+                    className={`text-lg font-semibold hover:text-brandColor nav-link relative ${
+                      isActive ? "nav-link-active" : ""
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </ul>
           </div>
 
@@ -92,19 +99,18 @@ const Navbar = () => {
                 <li className="bg-light p-2 rounded-md">{link.name}</li>
               </Link>
             ))}
-            
-            <li>
 
-             <Link
-              href="/sell"
-              className="flex items-center  bg-brandColor py-1 px-3 rounded-full text-white"
-              onClick={closeResponsiveNav}
+            <li>
+              <Link
+                href="/sell"
+                className="flex items-center  bg-brandColor py-1 px-3 rounded-full text-white"
+                onClick={closeResponsiveNav}
               >
-              <IoMdAddCircleOutline />
-              <div className=" w-1 h-fit bg-white mx-1"></div>
-              <span>Sell your car</span>
-            </Link>
-              </li>
+                <IoMdAddCircleOutline />
+                <div className=" w-1 h-fit bg-white mx-1"></div>
+                <span>Sell your car</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
