@@ -14,6 +14,7 @@ const links = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
+  { name: "Explore", href: "/cars" },
 ];
 
 const Navbar = () => {

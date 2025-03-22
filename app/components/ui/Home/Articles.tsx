@@ -1,8 +1,7 @@
 // app/components/Articles.js
 import Image from "next/image";
 import Link from "next/link";
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 type Article = {
   id: string;
@@ -14,8 +13,6 @@ type Article = {
 };
 
 const Articles = async () => {
-  
-
   try {
     const response = await fetch(`${baseUrl}/api/carArticles`);
     if (!response.ok) {
@@ -23,6 +20,14 @@ const Articles = async () => {
     }
 
     const carArticles = await response.json();
+
+    const formatDate = (date: string | number | Date) => {
+      const formattedDate = new Date(date);
+
+      return `${formattedDate.getDate()}-${
+        formattedDate.getMonth() + 1
+      }-${formattedDate.getFullYear()}`;
+    };
 
     return (
       <div className="col-span-3 flex flex-col gap-5 z-10">
@@ -34,7 +39,7 @@ const Articles = async () => {
                 aria-label="content article"
               >
                 <div className="flex gap-2 justify-start items-center">
-                  <span>{article.date}</span> <span>|</span>
+                  <span>{formatDate(article.date)}</span> <span>|</span>
                   <span className="bg-white text-brandColor rounded px-2 py-1">
                     {article.category}
                   </span>

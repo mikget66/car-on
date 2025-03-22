@@ -1,17 +1,10 @@
-// import cars from "../../data/cars";
-
-// export async function GET() {
-
-//   return new Response(JSON.stringify(cars), {
-//     headers: { "Content-Type": "application/json" },
-//   });
-// }
 import prisma from "@/lib/prisma";
 
 export async function GET() {
   try {
     const cars = await prisma.car.findMany({
       include: {
+        owner:true,
         safetyFeatures: true,
         inspectionReport: {
           include: {

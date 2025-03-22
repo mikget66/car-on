@@ -1,10 +1,10 @@
 // import { PrismaClient } from "@prisma/client";
 // import carArticles from "../app/data/carArticles"; // Adjust path as needed
-// import cars from "../app/data/cars"; // If you want to seed cars too
+// import cars from "../app/data/cars"; // Adjust path if needed
 
 // const prisma = new PrismaClient();
 
-// // Driven mapping and helper function (from your previous code)
+// // Driven mapping and helper function
 // const drivenMapping = {
 //   "City Driven": "CityDriven",
 //   "Uber Car": "UberCar",
@@ -29,7 +29,7 @@
 // }
 
 // async function main() {
-//   // Upsert the author "Michael Anwar" with id "author1"
+//   // Upsert the Author "Michael Anwar" (for articles)
 //   const author = await prisma.author.upsert({
 //     where: { id: "author1" },
 //     update: {},
@@ -44,25 +44,45 @@
 //     },
 //   });
 
-//   // Insert all articles from carArticles, assigning them to author1
+//   // Upsert the User "Michael Anwar" (for car ownership)
+//   const user = await prisma.user.upsert({
+//     where: { email: "michael.user@example.com" },
+//     update: {},
+//     create: {
+//       id: "user1", // or let it be auto-generated if you prefer
+//       name: "Michael Anwar",
+//       phone: "123-456-7890",
+//       whatsapp: "123-456-7890",
+//       email: "michael.user@example.com",
+//       password: "securepassword", // In real apps, hash your password!
+//       image: "/images/users/michael-avatar.png",
+//       location: "Your City, Country",
+//       type: "Individual",
+//     },
+//   });
+
+//   // Insert all articles from carArticles, assigning them to the Author ("author1")
 //   for (const rawArticle of carArticles) {
 //     // Omit the auto-generated id if present
 //     const { id, author: _unused, ...articleData } = rawArticle;
 //     await prisma.article.create({
 //       data: {
 //         ...articleData,
-//         date: new Date(articleData.date), // already a Date object in your file
+//         date: new Date(articleData.date),
 //         author: { connect: { id: author.id } },
 //       },
 //     });
 //   }
-  
-//   // Optionally seed cars as well, if desired:
+
+//   // Insert all cars, assigning them to the User ("user1")
 //   for (const rawCar of cars) {
-//     const { id, safetyFeatures, inspectionReport, ...carData } = rawCar;
+//     // Omit the auto-generated id and override ownerId if present
+//     const { id, ownerId: _oldOwnerId, safetyFeatures, inspectionReport, ...carData } = rawCar;
 //     await prisma.car.create({
 //       data: {
 //         ...carData,
+//         // Connect the car to the user (Michael Anwar as owner)
+//         owner: { connect: { id: user.id } },
 //         safetyFeatures: {
 //           create: {
 //             airbagNo: safetyFeatures.airbagNo,
@@ -106,7 +126,7 @@
 //       },
 //     });
 //   }
-  
+
 //   console.log("Seeding completed successfully!");
 // }
 

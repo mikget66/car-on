@@ -22,12 +22,15 @@ model Car {
   bookmarked         Json               // supports (number | string)[]
   kmDriven           Int
   ownerShip          String
-  ownerId            String             // kept as string for flexibility
   regNumber          String?
   engineCapacity     Int
   spareKey           Boolean
   new                Boolean
   discountPercentage Float?
+
+  // Relation to the owning User
+  ownerId            String
+  owner              User               @relation(fields: [ownerId], references: [id])
 
   safetyFeatures     SafetyFeatures?    @relation("CarSafetyFeatures")
   inspectionReport   InspectionReport?  @relation("CarInspectionReport")
@@ -124,6 +127,27 @@ model PerfectPart {
 
   inspectionReport   InspectionReport   @relation(fields: [inspectionReportId], references: [id])
   inspectionReportId Int
+}
+
+// New User model and enum for user type
+enum UserType {
+  Individual
+  Dealership
+}
+
+model User {
+  id          String   @id @default(uuid())
+  name        String
+  phone       String
+  whatsapp    String
+  email       String   @unique
+  password    String
+  image       String?
+  location    String
+  type        UserType
+
+  // A user can own many cars.
+  cars        Car[]
 }
 
 model Author {

@@ -2,6 +2,7 @@ import React from "react";
 import { GiHomeGarage } from "react-icons/gi";
 import { IoLocation } from "react-icons/io5";
 import { Car } from "@/types/car";
+import { FaPhone } from "react-icons/fa6";
 
 const CardDetails = ({ car }: { car: Car }) => {
   return (
@@ -23,12 +24,16 @@ const CardDetails = ({ car }: { car: Car }) => {
           <IoLocation />
           <span>{car.location}</span>
         </div>
+        <div className="flex gap-1">
+          <FaPhone/>
+          <span>{car.owner.phone}</span>
+        </div>
       </div>
       <div className="flex gap-3">
         <h3 className="text-2xl font-semibold">Price</h3>
         <p className="text-2xl font-semibold text-brandColor">${car.price}</p>
       </div>
-      <button className="bg-brandColor text-xl p-1 rounded-lg">
+      <button className="bg-brandColor text-white text-xl p-1 font-semibold rounded-lg">
         Book Free Test Drive
       </button>
     </div>
