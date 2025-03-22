@@ -56,6 +56,7 @@ const Articles = async () => {
                     className="object-cover hover:rotate-6 hover:scale-125 transition-all ease-in-out duration-150"
                   />
                 </div>
+                  {article.image}
               </div>
             </article>
           </Link>

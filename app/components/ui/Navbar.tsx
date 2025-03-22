@@ -86,7 +86,7 @@ const Navbar = () => {
         </nav>
         <div
           className={`${
-            isresponsiveLinks ? "max-h-52 mb-4" : "max-h-0 overflow-hidden "
+            isresponsiveLinks ? "max-h-[400px] mb-4" : "max-h-0 overflow-hidden "
           } transition-scale duration-500 ease-linear md:m-0 md:scale-0 md:h-0 `}
         >
           <ul className=" flex flex-col justify-start gap-3 ">
