@@ -23,6 +23,16 @@ export type Car = {
     airbagNo: number;
     ABS: boolean;
   };
+  owner: {
+    id: string;
+    name: string;
+    phone: string;
+    whatsapp: string;
+    email: string;
+    image: string;
+    location: string;
+    type: " Individual" | "Dealership";
+  };
   inspectionReport: {
     accedental: boolean | null;
     tempered: boolean | null;
