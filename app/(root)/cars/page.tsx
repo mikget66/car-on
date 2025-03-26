@@ -5,6 +5,7 @@ import { MdVerified } from "react-icons/md";
 import { TbRoad } from "react-icons/tb";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import Link from "next/link";
+import Filters from "@/app/components/ui/cars/Filters";
 
 const page = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -16,9 +17,13 @@ const page = async () => {
     <div className="Container">
       <h2>New and used cars for sale</h2>
       <div className=" grid md:grid-cols-[25%_75%] py-3">
-        <div className="filters">filters</div>
-
+        <Filters />
         <div className="flex flex-col  gap-3">
+          <div className=" flex gap-2">
+            <span className="p-3 bg-light rounded-lg">all</span>
+            <span className="p-3 bg-light rounded-lg">new</span>
+            <span className="p-3 bg-light rounded-lg">used</span>
+          </div>
           {cars.map((car) => (
             <Link key={car.id} href={`/cars/${car.id}`}>
               <div className="flex flex-col sm:flex-row bg-light rounded-lg overflow-hidden">

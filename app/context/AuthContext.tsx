@@ -1,27 +1,27 @@
 "use client";
+import { User } from "@/types/user";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 interface AuthContextProps {
   isLoggedIn: boolean;
-  user: unknown; // Replace with a proper type for your user if available
-  login: (userData: unknown, token: string) => void;
+  user: User | null; // Allow null for initial state
+  login: (userData: User, token: string) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<unknown>(null);
+  const [user, setUser] = useState<User | null>(null); // Ensure it's of type User | null
 
-  // Load user from localStorage on mount, if available
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      setUser(JSON.parse(storedUser) as User); // Ensure storedUser is parsed as User
     }
   }, []);
 
-  const login = (userData: unknown, token: string) => {
+  const login = (userData: User, token: string) => { // Ensure userData is of type User
     setUser(userData);
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(userData));

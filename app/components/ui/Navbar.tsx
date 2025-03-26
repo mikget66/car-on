@@ -29,7 +29,7 @@ const Navbar = () => {
     setIsresponsiveLinks(false);
   };
   
-  const { isLoggedIn, user } = useAuth();
+  const { isLoggedIn, user} = useAuth();
   console.log(isLoggedIn)
   return (
     <header
@@ -72,8 +72,8 @@ const Navbar = () => {
           {isLoggedIn ? (
               // If logged in, display the user image
               <img
-                src={user.image || "images/placeholders/default-avatar.png"}
-                alt={user.name}
+                src={user?.image || "images/placeholders/default-avatar.png"}
+                alt={user?.name}
                 className=" rounded-full object-cover"
               />
             ) : (
