@@ -33,12 +33,12 @@ const Articles = async () => {
       <div className="col-span-3 flex flex-col gap-5 z-10">
         {carArticles.slice(0, 6).map((article: Article) => (
           <Link key={article.title} href={`/blogs/${article.id}`}>
-            <article className="bg-light p-8 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-[400px]">
+            <article className="bg-light p-6 rounded-xl grid grid-cols-1 lg:grid-cols-[40%_60%] gap-4 ">
               <div
                 className="flex flex-col justify-start items-start gap-4"
                 aria-label="content article"
               >
-                <div className="flex gap-2 justify-start items-center">
+                <div className="flex gap-2 justify-start items-center ">
                   <span>{formatDate(article.date)}</span> <span>|</span>
                   <span className="bg-white text-brandColor rounded px-2 py-1">
                     {article.category}
@@ -47,8 +47,8 @@ const Articles = async () => {
                 <h3 className="text-4xl font-bold">{article.title}</h3>
                 <p className="text-textlight">{article.description}</p>
               </div>
-              <div className="flex justify-end items-start">
-                <div className="h-[180px] lg:h-[300px] w-full overflow-hidden relative rounded-xl">
+              <div className=" lg:pr-3 ">
+                <div className="h-[180px] lg:h-[290px] w-[100%] overflow-hidden relative rounded-xl">
                   <Image
                     src={article.image}
                     alt={article.title}

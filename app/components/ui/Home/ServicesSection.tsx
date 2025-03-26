@@ -44,7 +44,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="rounded-3xl lg:m-5 py-10">
+    <section id="services" className="rounded-3xl my-5 lg:m-5 py-10">
       <SectionHeading
         title="Services"
         subtitle="CarOn Services"

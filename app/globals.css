@@ -205,12 +205,17 @@
 
 /* Article Component */
 .article {
+  margin-top: 5px;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  word-break: keep-all;
   h1 {
+
     font-size: 3rem;
+    font-weight: 700;
+    line-height: 90%;
   }
   a {
     text-decoration: underline;

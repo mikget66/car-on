@@ -27,7 +27,7 @@ const BrandsSection = () => {
   return (
     <section
       id="brands"
-      className="brands flex flex-col justify-center rounded-3xl bg-light lg:m-5 py-10"
+      className="brands flex flex-col justify-center rounded-3xl bg-light my-5 lg:m-5 py-10"
     >
       <SectionHeading
         title="Brands"

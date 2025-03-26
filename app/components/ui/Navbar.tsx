@@ -8,6 +8,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { useState } from "react";
 
+import { useAuth } from "@/app/context/AuthContext";
+
 const caveat = Caveat({ subsets: ["latin"] });
 
 const links = [
@@ -26,7 +28,9 @@ const Navbar = () => {
   const closeResponsiveNav = () => {
     setIsresponsiveLinks(false);
   };
-
+  
+  const { isLoggedIn, user } = useAuth();
+  console.log(isLoggedIn)
   return (
     <header
       className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
@@ -65,9 +69,19 @@ const Navbar = () => {
           </div>
 
           <div className="controls flex items-center gap-4">
-            <Link href={"/signin"}>
-              <IoPersonAdd />
-            </Link>
+          {isLoggedIn ? (
+              // If logged in, display the user image
+              <img
+                src={user.image || "images/placeholders/default-avatar.png"}
+                alt={user.name}
+                className=" rounded-full object-cover"
+              />
+            ) : (
+              // If not logged in, display the signin icon
+              <Link href="/signin">
+                <IoPersonAdd />
+              </Link>
+            )}
             <ThemeSwitch />
             <Link
               href={"/sell"}
@@ -86,7 +100,9 @@ const Navbar = () => {
         </nav>
         <div
           className={`${
-            isresponsiveLinks ? "max-h-[400px] mb-4" : "max-h-0 overflow-hidden "
+            isresponsiveLinks
+              ? "max-h-[400px] mb-4"
+              : "max-h-0 overflow-hidden "
           } transition-scale duration-500 ease-linear md:m-0 md:scale-0 md:h-0 `}
         >
           <ul className=" flex flex-col justify-start gap-3 ">

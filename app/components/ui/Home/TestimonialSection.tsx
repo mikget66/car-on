@@ -70,7 +70,7 @@ const TestimonialSection = () => {
     console.log(swiper);
   
     return (
-      <section id="Testimonial" className="rounded-3xl lg:m-5 py-20">
+      <section id="Testimonial" className="rounded-3xl my-5 lg:m-5 py-20">
         <SectionHeading
           title="Testimonial"
           subtitle="See What Our Clients Say About Us"
@@ -87,7 +87,7 @@ const TestimonialSection = () => {
                     <p className="2xl:max-w-[60%] text-4xl text-center">
                       {testimonial.testimonial}
                     </p>
-                    <p>{testimonial.who}</p>
+                    <p className="text-center">{testimonial.who}</p>
                   </div>
                 </SwiperSlide>
               ))}

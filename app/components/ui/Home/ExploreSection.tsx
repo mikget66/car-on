@@ -12,7 +12,7 @@ const caveat = Caveat({ subsets: ["latin"] });
 
 const ExploreSection = () => {
   return (
-    <section id="explore" className="rounded-3xl bg-light lg:m-5 py-10">
+    <section id="explore" className="rounded-3xl bg-light my-5 lg:m-5 py-10">
       <div className="Container flex flex-col max-w-full">
         <div className="my-10">
           <h1
@@ -29,12 +29,12 @@ const ExploreSection = () => {
                 Find what you’re looking for.
               </span>
             </p>
-            <Link href="/" className="text-brandColor">
+            <Link href="/cars" className="text-brandColor">
               SEE ALL <GoArrowUpRight className="inline" />
             </Link>
           </div>
         </div>
-{/*  */}
+
 <CarSlider/>
       </div>
     </section>

@@ -17,10 +17,10 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const parsedContent = md.render(Article?.content);
     return (
       <div className="flex flex-col items-center py-5 gap-3">
-        <h2 className="text-center text-3xl bg-light p-3 shadow-lg">
+        <h2 className="text-center text-3xl bg-light p-3 shadow-lg m-1 md:m-0">
           {Article.title}
         </h2>
-        <p className="text-textlight">{Article.description}</p>
+        <p className="text-textlight px-5">{Article.description}</p>
         <div className="Container ">
           <div className="h-[200px] lg:h-[650px] w-full overflow-hidden relative rounded-xl">
             <Image

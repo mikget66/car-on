@@ -48,14 +48,15 @@ const Main = () => {
   bg-CarImage bg-no-repeat bg-cover bg-center
   "
     >
-      <h1 className="text-5xl md:text-8xl font-bold my-8 text-center">
+      <h1 className="text-5xl md:text-8xl font-bold my-8 text-center text-white">
         Find Your
         <span className={`${caveat.className} text-brandColor text-span`}>
           Dream
         </span>
         Car.
       </h1>
-      <p className="mb-8 text-lg md:text-2xl m-1 text-center">
+      <p className="mb-8 text-lg md:text-2xl m-1 text-center text-white
+      ">
         {`You'll get comprehensive results based on the provided location.`}
       </p>
 
