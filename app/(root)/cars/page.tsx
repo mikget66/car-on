@@ -1,15 +1,15 @@
+// app/(root)/cars/page.tsx
 import { Suspense } from 'react';
 import Filters from "@/app/components/ui/cars/Filters";
 import ConditionFilter from "@/app/components/ui/cars/ConditionFilter";
 import CarListWithSkeleton from "@/app/components/ui/cars/CarListWithSkeleton";
 import CarListingHeader from "@/app/components/ui/cars/CarListingHeader"; 
 
-
-const page = async ({
+export default async function Page({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] };
-}) => {
+}) {
   // Build the query string from searchParams.
   const query = new URLSearchParams();
   for (const key in searchParams) {
@@ -24,7 +24,6 @@ const page = async ({
 
   return (
     <div className="Container">
-     
       <Suspense fallback={<h2 className='font-caveatRegular text-brandColor my-3 text-4xl'>Loading cars...</h2>}>
         <CarListingHeader />
       </Suspense>
@@ -38,6 +37,4 @@ const page = async ({
       </div>
     </div>
   );
-};
-
-export default page;
+}
