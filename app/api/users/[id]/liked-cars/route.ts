@@ -1,7 +1,8 @@
+import { NextRequest } from 'next/server';
 import prisma from "@/lib/prisma";
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const userId = params.id; // the id of the user for which we want liked cars
@@ -23,7 +24,7 @@ export async function GET(
           include: {
             tyres: true,
             driven: true,
-            imprerfections: true,
+            imprerfections: true, // Note: "imprerfections" seems like a typo; should it be "imperfections"?
             repaintedParts: true,
             perfectParts: true,
           },
