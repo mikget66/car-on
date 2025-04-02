@@ -6,10 +6,9 @@ import { FaRoad, FaUsers } from "react-icons/fa";
 import { BsSpeedometer2, BsFillFuelPumpFill } from "react-icons/bs";
 import { GiGearStick, GiCarWheel } from "react-icons/gi";
 
-import { Caveat } from "next/font/google";
 import { Car } from "@/types/car";
 import { TfiBolt } from "react-icons/tfi";
-const caveat = Caveat({ subsets: ["latin"] });
+
 const KnowYourCar = ({ car }: { car: Car }) => {
   const sumOfGodTyres = Object.values(car.inspectionReport?.tyres || {}).filter(
     (tread) => tread >= 90
@@ -19,7 +18,7 @@ const KnowYourCar = ({ car }: { car: Car }) => {
     <div className="flex flex-col gap-5">
       <h3 className="text-4xl font-medium mt-4">
         Know Your{" "}
-        <span className={`${caveat.className} text-brandColor`}>car</span>
+        <span className='font-caveatRegular text-brandColor'>car</span>
       </h3>
       <div className="details">
         <div>
@@ -135,7 +134,7 @@ const KnowYourCar = ({ car }: { car: Car }) => {
         </div>
         <div>
           <div>
-            {car.fuelType == "Electric" ? <TfiBolt/> : <BsFillFuelPumpFill />}
+            {car.fuelType == "Electric" ? <TfiBolt /> : <BsFillFuelPumpFill />}
           </div>
           <p>
             Fuel type

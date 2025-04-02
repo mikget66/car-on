@@ -1,6 +1,7 @@
 // app/components/Articles.js
 import Image from "next/image";
 import Link from "next/link";
+import ErrorMessage from "../../ErrorMessage";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 type Article = {
@@ -64,7 +65,7 @@ const Articles = async () => {
     );
   } catch (error) {
     console.error("Error fetching car articles:", error);
-    return <div>Error loading car articles. Please try again later.</div>;
+    <ErrorMessage error="Error loading car articles. Please try again later."/>
   }
 };
 

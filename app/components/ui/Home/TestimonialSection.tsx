@@ -6,11 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { A11y } from "swiper/modules";
-import { SwiperLeftButton, SwiperRightButton} from "./SwiperButtons";
+import { SwiperLeftButton, SwiperRightButton } from "./SwiperButtons";
 
-import { useSwiper } from "swiper/react";
 import SectionHeading from "../SectionHeading";
-// import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
 const testimonials = [
   {
@@ -66,43 +64,47 @@ const testimonials = [
 ];
 
 const TestimonialSection = () => {
-    const swiper = useSwiper();
-    console.log(swiper);
-  
-    return (
-      <section id="Testimonial" className="rounded-3xl my-5 lg:m-5 py-20">
-        <SectionHeading
-          title="Testimonial"
-          subtitle="See What Our Clients Say About Us"
-          description="Discover exciting categories."
-          highlight="Discover exciting categories. Find what you’re looking for."
-        />
-        <div className="Container">
-          <div className="relative">
-            <Swiper modules={[A11y]} spaceBetween={50} slidesPerView={1}>
-              {testimonials.map((testimonial, index) => (
-                <SwiperSlide key={index}>
-                  <div className="flex flex-col justify-center items-center gap-6">
-                  <Image src="/svgs/quote-white.svg" height={30} width={30} alt="quote SVG"/>
-                    <p className="2xl:max-w-[60%] text-4xl text-center">
-                      {testimonial.testimonial}
-                    </p>
-                    <p className="text-center">{testimonial.who}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-              
-              <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 hidden md:inline">
-                <SwiperLeftButton />
-              </div>
-              <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 hidden md:inline" >
-                <SwiperRightButton/>
-              </div>
-            </Swiper>
-          </div>
+  return (
+    <section id="Testimonial" className="rounded-3xl my-5 lg:m-5 py-20">
+      <SectionHeading
+        title="Testimonial"
+        subtitle="See What Our Clients Say About Us"
+        description="Discover exciting categories."
+        highlight="Discover exciting categories. Find what you’re looking for."
+      />
+      <div className="Container">
+        <div className="relative">
+          <Swiper modules={[A11y]} spaceBetween={50} slidesPerView={1}>
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col justify-center items-center gap-6">
+                  <Image
+                    src="/svgs/quote-white.svg"
+                    height={30}
+                    width={30}
+                    style={{ width: "auto", height: "auto" }}
+                    alt="quote SVG"
+                  />
+
+                  <p className="2xl:max-w-[60%] text-4xl text-center">
+                    {testimonial.testimonial}
+                  </p>
+                  <p className="text-center">{testimonial.who}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+
+            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 hidden md:inline">
+              <SwiperLeftButton />
+            </div>
+            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 hidden md:inline">
+              <SwiperRightButton />
+            </div>
+          </Swiper>
         </div>
-      </section>
-    );
-  };
-  
-  export default TestimonialSection;
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialSection;

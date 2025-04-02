@@ -1,16 +1,17 @@
 "use client";
 import Link from "next/link";
-import { Caveat } from "next/font/google";
 import ThemeSwitch from "../ui/ThemeSwitch";
 import { IoPersonAdd } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { useState } from "react";
+import { useCallback } from "react";
 
 import { useAuth } from "@/app/context/AuthContext";
+import { FaUserMinus } from "react-icons/fa";
+import Image from "next/image";
 
-const caveat = Caveat({ subsets: ["latin"] });
 
 const links = [
   { name: "Home", href: "/" },
@@ -20,17 +21,18 @@ const links = [
 ];
 
 const Navbar = () => {
+  const toggleResponsiveNav = useCallback(() => {
+    setIsresponsiveLinks((prev) => !prev);
+  }, []);
   const pathName = usePathname();
   const [isresponsiveLinks, setIsresponsiveLinks] = useState(false);
-  const toggleResponsiveNav = () => {
-    setIsresponsiveLinks(!isresponsiveLinks);
-  };
+
   const closeResponsiveNav = () => {
     setIsresponsiveLinks(false);
   };
-  
-  const { isLoggedIn, user} = useAuth();
-  console.log(isLoggedIn)
+
+  const { isLoggedIn, user, logout } = useAuth();
+
   return (
     <header
       className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
@@ -46,7 +48,7 @@ const Navbar = () => {
             className="logo text-3xl md:text-5xl font-semibold cursor-pointer"
           >
             Car
-            <span className={`${caveat.className} text-brandColor`}>On.</span>
+            <span className='font-caveatRegular text-brandColor'>On.</span>
           </Link>
 
           <div>
@@ -69,13 +71,25 @@ const Navbar = () => {
           </div>
 
           <div className="controls flex items-center gap-4">
-          {isLoggedIn ? (
-              // If logged in, display the user image
-              <img
-                src={user?.image || "images/placeholders/default-avatar.png"}
-                alt={user?.name}
-                className=" rounded-full object-cover"
-              />
+            {isLoggedIn ? (
+              <>
+                <Link href={`/profile/${user?.id}`}>
+                  <Image
+                    src={
+                      user?.image || "/images/placeholders/default-avatar.png"
+                    }
+                    loading="lazy"
+                    alt={`${user?.name} profile image`}
+                    width={100} // adjust width as needed
+                    height={100} // adjust height as needed
+                    className="rounded-full object-cover"
+                  />
+                </Link>
+
+                <button onClick={logout}>
+                  <FaUserMinus />
+                </button>
+              </>
             ) : (
               // If not logged in, display the signin icon
               <Link href="/signin">

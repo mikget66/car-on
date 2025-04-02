@@ -1,8 +1,5 @@
-import { Caveat } from "next/font/google";
 import Image from "next/image";
 import SectionHeading from "../SectionHeading";
-
-const caveat = Caveat({ subsets: ["latin"] });
 
 const brands = [
   { carBrand: "Toyota", total: 21, image: "/svgs/car-brand/toyota.svg" },
@@ -52,9 +49,7 @@ const BrandsSection = () => {
                 height={50}
               />
               <p>{brand.carBrand}</p>
-              <span
-                className={`${caveat.className} bg-light py-1 px-2 rounded-xl`}
-              >
+              <span className="font-caveatRegular bg-light py-1 px-2 rounded-xl">
                 {brand.total}
               </span>
             </div>

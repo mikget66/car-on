@@ -1,8 +1,6 @@
 "use client";
 import SectionHeading from "@/app/components/ui/SectionHeading";
-import { Caveat } from "next/font/google";
 import Image from "next/image";
-const caveat = Caveat({ subsets: ["latin"] });
 
 import { useEffect } from "react";
 
@@ -10,37 +8,37 @@ const awards = [
   {
     title: "Best Automotive Marketplace 2024",
     image: "/svgs/Award.svg",
-    date: "January 2024"
+    date: "January 2024",
   },
   {
     title: "Customers' Choice Award",
     image: "/svgs/Award.svg",
-    date: "December 2023"
+    date: "December 2023",
   },
   {
     title: "Top Verified Listings Platform",
     image: "/svgs/Award.svg",
-    date: "November 2023"
+    date: "November 2023",
   },
   {
     title: "Most Transparent Pricing",
     image: "/svgs/Award.svg",
-    date: "October 2023"
-  }
+    date: "October 2023",
+  },
 ];
 const Page = () => {
   useEffect(() => {
     const counters = document.querySelectorAll<HTMLSpanElement>(".counter");
 
     const startCount = (counter: HTMLSpanElement) => {
-      const target = Number(counter.dataset.target) || 0; 
+      const target = Number(counter.dataset.target) || 0;
       const increment = target / 100;
       let count = 0;
 
       const updateCount = () => {
         count += increment;
         if (count < target) {
-          counter.textContent = Math.floor(count).toString(); 
+          counter.textContent = Math.floor(count).toString();
           requestAnimationFrame(updateCount);
         } else {
           counter.textContent = target.toString();
@@ -63,7 +61,7 @@ const Page = () => {
         </span>
         <h1 className="text-6xl text-center max-w-[1200px]">
           CarOn was founded in 2023 by Michael with a{" "}
-          <span className={caveat.className}>vision to your original</span> or
+          <span className='font-caveatRegular'>vision to your original</span> or
           inspiration.
         </h1>
         <div
@@ -111,7 +109,7 @@ const Page = () => {
               while offering the best deals.
             </p>
             <p
-              className={`${caveat.className} border-l-4 border-brandColor p-3 text-4xl`}
+              className='font-caveatRegular border-l-4 border-brandColor p-3 text-4xl'
             >
               With a vast network of trusted dealerships and private sellers,
               finding your dream car has never been easier. Explore, compare,
@@ -126,6 +124,7 @@ const Page = () => {
               width={300}
               height={100}
               alt="signature"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <div className="aboutImageGrid h-[450px] lg:h-auto">
@@ -136,6 +135,7 @@ const Page = () => {
                   alt={"grid Image"}
                   fill
                   className="object-cover "
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="ImageContainer">
@@ -144,6 +144,7 @@ const Page = () => {
                   alt={"grid Image"}
                   fill
                   className="object-cover "
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </div>
@@ -154,6 +155,7 @@ const Page = () => {
                   alt={"grid Image"}
                   fill
                   className="object-cover "
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="ImageContainer">
@@ -162,6 +164,7 @@ const Page = () => {
                   alt={"grid Image"}
                   fill
                   className="object-cover "
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </div>
@@ -177,14 +180,9 @@ const Page = () => {
             highlight="Your journey to the perfect vehicle starts here"
           />
           <div className="flex flex-col md:flex-row justify-between gap-3">
-            {awards.map(({title, image ,date}) => (
+            {awards.map(({ title, image, date }) => (
               <div key={title} className="flex flex-col gap-3 items-center">
-                <Image
-                  src={image}
-                  width={100}
-                  height={100}
-                  alt="Award SVG"
-                />
+                <Image src={image} width={100} height={100} alt="Award SVG" />
                 <p className="text-brandColor font-semibold">{title}</p>
                 <p>{date}</p>
               </div>

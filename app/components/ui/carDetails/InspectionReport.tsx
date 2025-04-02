@@ -3,9 +3,6 @@ import { Car } from "@/types/car";
 import AccordionComponent from "@/app/components/ui/AccordionComponent";
 import TyreCondition from "@/app/components/ui/carDetails/TyreCondition";
 
-import { Caveat } from "next/font/google";
-const caveat = Caveat({ subsets: ["latin"] });
-
 import { PiThermometerHot } from "react-icons/pi";
 import { FaCarBurst, FaGears } from "react-icons/fa6";
 import { FaCheckCircle, FaWater } from "react-icons/fa";
@@ -15,7 +12,7 @@ const InspectionReport = ({ car }: { car: Car }) => {
     <div className="flex flex-col gap-4">
       <h3 className="text-4xl font-medium my-4">
         Inspection{" "}
-        <span className={`${caveat.className} text-brandColor`}>Report</span>
+        <span className="font-caveatRegular text-brandColor">Report</span>
       </h3>
       <div className="flex justify-between flex-col md:flex-row gap-4">
         <p>

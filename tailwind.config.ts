@@ -22,7 +22,10 @@ export default {
       },
     },
     fontFamily: {
-      Caveat: ["var(--font-caveat)"],
+      caveatRegular: "var(--font-caveat-regular)",
+      caveatMedium: "var(--font-caveat-medium)",
+      caveatSemiBold: "var(--font-caveat-semibold)",
+      caveatBold: "var(--font-caveat-bold)",
     },
   },
   plugins: [],

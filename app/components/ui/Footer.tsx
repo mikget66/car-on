@@ -9,23 +9,23 @@ import {
   FaTwitter,
   FaWhatsapp,
 } from "react-icons/fa";
-import { Caveat } from "next/font/google";
 import Image from "next/image";
-
-const caveat = Caveat({ subsets: ["latin"] });
 
 const Footer = () => {
   return (
     <footer className="bg-bgdark text-white pt-36">
       <div className="Container py-4">
-        <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0 ">
-          <Image
-            src={"/images/background/phone.png"}
-            width={200}
-            height={300}
-            alt=""
-            className="lg:self-end m-0 order-last lg:order-first  drop-shadow-[0_50px_50px_rgba(0,0,0,.6)] "
-          />
+        <div className="bg-brandColor rounded-2xl flex flex-col lg:flex-row items-center justify-around min-h-[200px] lg:h-[200px] gap-7 lg:gap-0 text-center lg:text-start pt-7 lg:pt-0 ">
+          <div className="m-0 order-last lg:order-first lg:self-end  lg:w-[200px] aspect-[2/3]">
+            <Image
+              src={"/images/background/phone.png"}
+              width={200}
+              height={300}
+              alt="phone pnge"
+              loading="lazy"
+              className="   drop-shadow-[0_50px_50px_rgba(0,0,0,.6)]"
+            />
+          </div>
           <div className="">
             <p className="text-3xl font-medium">Download Our App</p>
             <p className="max-w-[400px] text-lg font-normal mx-2">
@@ -41,7 +41,9 @@ const Footer = () => {
               <FaApple className="text-2xl lg:text-4xl" />
               <span>
                 Available on the
-                <span className="block text-base lg:text-xl font-semibold">App Store</span>
+                <span className="block text-base lg:text-xl font-semibold">
+                  App Store
+                </span>
               </span>
             </Link>
             <Link
@@ -51,7 +53,9 @@ const Footer = () => {
               <FaGooglePlay className="text-2xl lg:text-4xl" />
               <span>
                 Get it on
-                <span className="block text-base lg:text-xl font-semibold">Google Play</span>
+                <span className="block text-base lg:text-xl font-semibold">
+                  Google Play
+                </span>
               </span>
             </Link>
           </div>
@@ -66,12 +70,16 @@ const Footer = () => {
             </p>
             <div className="border-2 border-gray-700 rounded-xl p-6 ">
               <p className="text-textlight">Join our Whatsapp:</p>
-              <a href="https://wa.me/+201225292831" target="_blank" rel="noopener noreferrer">
-  <p className="text-lg lg:text-2xl font-bold underline decoration-2 tracking-widest">
-    <FaWhatsapp className="inline mr-2" />
-    (+20)12 2529 2831
-  </p>
-</a>
+              <a
+                href="https://wa.me/+201225292831"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-lg lg:text-2xl font-bold underline decoration-2 tracking-widest">
+                  <FaWhatsapp className="inline mr-2" />
+                  (+20)12 2529 2831
+                </p>
+              </a>
             </div>
             <h3 className=" text-2xl font-bold">
               Want to join CarOn? Write us !
@@ -105,27 +113,35 @@ const Footer = () => {
             <h3 className="text-2xl font-bold">Follow the location</h3>
             <ul className="socila-list">
               <li className="hover:bg-pink-900">
-                <Link href={"https://www.instagram.com/michael_anwar22/?hl=en"} target="_blank">
+                <Link
+                  href={"https://www.instagram.com/michael_anwar22/?hl=en"}
+                  target="_blank"
+                >
                   <FaInstagram />
                 </Link>
               </li>
               <li className="hover:bg-blue-900">
-                <Link href={"https://x.com/mikelhfzy"} target="_blank" >
+                <Link href={"https://x.com/mikelhfzy"} target="_blank">
                   <FaTwitter />
                 </Link>
               </li>
               <li className="hover:bg-pink-900">
-                <Link href={"https://dribbble.com/micky_anwar"} target="_blank" >
-                  <FaDribbble/>
+                <Link href={"https://dribbble.com/micky_anwar"} target="_blank">
+                  <FaDribbble />
                 </Link>
               </li>
               <li className="hover:bg-blue-700">
-                <Link href={"https://www.facebook.com/profile.php?id=100023482831143"} target="_blank" >
+                <Link
+                  href={
+                    "https://www.facebook.com/profile.php?id=100023482831143"
+                  }
+                  target="_blank"
+                >
                   <FaFacebookF />
                 </Link>
               </li>
               <li className="hover:bg-green-800">
-                <Link href={"https://wa.me/+201225292831"} target="_blank" >
+                <Link href={"https://wa.me/+201225292831"} target="_blank">
                   <FaWhatsapp />
                 </Link>
               </li>
@@ -139,7 +155,7 @@ const Footer = () => {
               className="logo text-3xl md:text-5xl font-semibold cursor-pointer"
             >
               Car
-              <span className={`${caveat.className} text-brandColor`}>On.</span>
+              <span className="font-caveatRegular text-brandColor">On.</span>
             </Link>
             <span className="border-r-2 border-gray-700 self-stretch mx-4"></span>
             <p className="">

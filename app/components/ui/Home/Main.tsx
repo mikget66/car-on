@@ -1,9 +1,7 @@
 import SearchForm from "../SearchForm";
-import { Caveat } from "next/font/google";
 import Image from "next/image";
 import Wave from "../Wave";
 
-const caveat = Caveat({ subsets: ["latin"] });
 const carLinks = [
   {
     href: "#",
@@ -50,7 +48,7 @@ const Main = () => {
     >
       <h1 className="text-5xl md:text-8xl font-bold my-8 text-center text-white">
         Find Your
-        <span className={`${caveat.className} text-brandColor text-span`}>
+        <span className='font-caveatRegular text-brandColor text-span'>
           Dream
         </span>
         Car.

@@ -1,10 +1,8 @@
-import { Caveat } from "next/font/google";
-
 import LoginForm from "@/app/components/ui/login/LoginForm";
 import AuthButtons from "@/app/components/ui/login/AuthButtons";
 import LoginLayout from "@/app/components/ui/login/LoginLayout";
 
-const caveat = Caveat({ subsets: ["latin"] });
+
 
 const page = () => {
   return (
@@ -13,7 +11,7 @@ const page = () => {
         <div className="flex flex-col gap-5">
           <h2 className="text-[3.2rem] font-medium">
             Welcome back! Please
-            <span className={`${caveat.className} text-brandColor`}>
+            <span className='font-caveatRegular text-brandColor'>
               Sign in
             </span>
             to continue.

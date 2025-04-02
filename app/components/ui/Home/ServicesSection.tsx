@@ -1,4 +1,3 @@
-import { Caveat } from "next/font/google";
 import AnimateOnScroll from "../AnimateOnScroll";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +7,6 @@ import SectionHeading from "../SectionHeading";
 import { GoArrowUpRight } from "react-icons/go";
 import Articles from "./Articles";
 
-const caveat = Caveat({ subsets: ["latin"] });
 
 const services = [
   {
@@ -41,7 +39,6 @@ const services = [
   },
 ];
 
-
 const ServicesSection = () => {
   return (
     <section id="services" className="rounded-3xl my-5 lg:m-5 py-10">
@@ -67,11 +64,12 @@ const ServicesSection = () => {
                     index + 1
                   } /`}</div>
                   <div className="h-[110px] w-[180px] overflow-hidden relative">
-                  <Image
+                    <Image
                       fill
                       src={service.image}
                       alt={service.name}
                       style={{ display: "" }}
+                      sizes="(max-width: 768px) 100px, (max-width: 1200px) 180px, 200px"
                       className="object-cover overflow-hidden inline"
                     />
                   </div>
@@ -88,7 +86,7 @@ const ServicesSection = () => {
           ))}
         </div>
         <div className="my-[30px] electric-cars p-2 lg:p-9 rounded-2xl">
-          <div className="">
+          <div>
             <Image
               src={"/images/background/eq-logo.jpg"}
               width={80}
@@ -117,7 +115,7 @@ const ServicesSection = () => {
           <div className="lg:sticky lg:top-[150px] h-fit col-span-2">
             <AnimateOnScroll>
               <h2
-                className={`${caveat.className} text-brandColor font-semibold text-3xl lg:text-5xl`}
+                className='font-caveatRegular text-brandColor font-semibold text-3xl lg:text-5xl'
               >
                 Our Latest Articles
               </h2>
@@ -136,10 +134,10 @@ const ServicesSection = () => {
               >
                 View All Posts
               </Link>
-              <Image priority src={cursiveArrow} alt="" />
+              <Image priority src={cursiveArrow} alt="cursiveArrow svg" />
             </AnimateOnScroll>
           </div>
-          <Articles/>
+          <Articles />
           <div className="relative w-0 h-0">
             <div className="absolute bottom-[100px] w-[400px] max-w-60 aspect-square bg-brandColor  -z-0 blur-[200px] opacity-90"></div>
           </div>

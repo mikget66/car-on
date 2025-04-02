@@ -1,11 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Caveat } from "next/font/google";
 import { useState, useEffect } from "react";
 import ArticleSkeleton from "@/app/components/ui/skeletons/ArticleSkeleton";
-
-const caveat = Caveat({ subsets: ["latin"] });
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -78,7 +75,7 @@ const Page = () => {
       <div className="Container flex flex-col gap-3  pb-3">
         <h2 className="text-3xl">
           Our{" "}
-          <span className={`${caveat.className} text-brandColor text-4xl`}>
+          <span className='font-caveatRegular text-brandColor text-4xl'>
             blogs
           </span>
         </h2>

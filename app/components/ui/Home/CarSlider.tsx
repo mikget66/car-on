@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
@@ -21,6 +21,7 @@ import { Car } from "@/types/car";
 
 const CarSlider = () => {
   const [cars, setCars] = useState<Car[]>([]);
+const memoizedCars = useMemo(() => cars, [cars]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -59,7 +60,7 @@ const CarSlider = () => {
             0: { slidesPerView: 1 },
           }}
         >
-          {cars.map((car) => (
+          {memoizedCars.map((car) => (
             <SwiperSlide key={car.id}>
               <Link href={`/cars/${car.id}`}>
                 <div className="card bg-background rounded-2xl overflow-hidden">
@@ -74,13 +75,15 @@ const CarSlider = () => {
                         {car.discountPercentage}% off
                       </div>
                     )}
-                  
-                    <div className="relative w-full h-[200px]  sm:h-[220px] md:h-[254px] lg:h-[300px]">
+
+                    <div className="relative w-full h-[200px] sm:h-[220px] md:h-[254px] lg:h-[300px]">
                       <Image
                         className="object-cover"
                         src={car.images[0]}
                         alt={car.carBrand}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1668px) 50vw, 33vw"
+                        loading="lazy"
                       />
                     </div>
                   </div>

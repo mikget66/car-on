@@ -5,16 +5,17 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import StarRating from "@/app/components/ui/StarRating";
 import { Car } from "@/types/car";
 
-// Replace this with your actual user id from auth context
-const currentUserId = "10";
-
+import { useAuth } from "@/app/context/AuthContext";
 const CarDetailHeader = ({ car }: { car: Car }) => {
+  const { user } = useAuth();
+  const currentUserId  : string |undefined = user?.id 
   const initialBookmarks = Array.isArray(car.bookmarked)
     ? car.bookmarked.map((item) => String(item))
     : [];
 
   const [bookmarked, setBookmarked] = useState<string[]>(initialBookmarks);
-  const isBookmarked = bookmarked.includes(currentUserId);
+  const isBookmarked = currentUserId ? bookmarked.includes(currentUserId) : false;
+
 
   const handleBookmark = async () => {
     try {

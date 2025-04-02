@@ -17,34 +17,25 @@ const AnimateOnScroll = ({
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const element = elementRef.current;
+  
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => setIsVisible(true), delay); // Set timeout for delay
-          } else if (entry.boundingClientRect.top > 0) {
-            setIsVisible(false);
+            setTimeout(() => setIsVisible(true), delay);
           }
         });
       },
-      {
-        threshold: threshold,
-      }
+      { threshold }
     );
-
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, [delay,threshold]);
+  
+    const element = elementRef.current;
+    if (element) observer.observe(element);
+  
+    return () => observer.disconnect();
+  }, [delay, threshold]); // 
 
   return (
     <div
