@@ -1,9 +1,6 @@
 import prisma from "@/lib/prisma";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request, { params }) {
   const userId = params.id; // the id of the user who posted the cars
 
   try {
@@ -16,7 +13,9 @@ export async function GET(
         },
       },
       include: {
-        owner: { select: { name: true, image: true, phone: true, whatsapp: true } },
+        owner: {
+          select: { name: true, image: true, phone: true, whatsapp: true },
+        },
         safetyFeatures: true,
         inspectionReport: {
           include: {
@@ -29,15 +28,18 @@ export async function GET(
         },
       },
     });
-    
+
     return new Response(JSON.stringify(postedCars), {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error("Error fetching posted cars:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch posted cars" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch posted cars" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
