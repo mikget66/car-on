@@ -1,26 +1,22 @@
-// app/(root)/cars/page.tsx
 import { Suspense } from 'react';
 import Filters from "@/app/components/ui/cars/Filters";
 import ConditionFilter from "@/app/components/ui/cars/ConditionFilter";
 import CarListWithSkeleton from "@/app/components/ui/cars/CarListWithSkeleton";
-import CarListingHeader from "@/app/components/ui/cars/CarListingHeader"; 
+import CarListingHeader from "@/app/components/ui/cars/CarListingHeader";
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] };
-}) {
-  // Build the query string from searchParams.
+// Define the page component with correct searchParams type
+export default async function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  // Build the query string from searchParams
   const query = new URLSearchParams();
-  for (const key in searchParams) {
-    const value = searchParams[key];
+
+  // Process searchParams into query
+  Object.entries(searchParams).forEach(([key, value]) => {
     if (Array.isArray(value)) {
-      value.forEach((v) => query.append(key, String(v)));
-    } else {
-      query.append(key, String(value));
+      value.forEach(v => query.append(key, v));
+    } else if (value) {
+      query.append(key, value);
     }
-  }
-  const queryString = query.toString();
+  });
 
   return (
     <div className="Container">
@@ -33,7 +29,7 @@ export default async function Page({
         <div>
           <Filters />
         </div>
-        <CarListWithSkeleton query={queryString} />
+        <CarListWithSkeleton query={query.toString()} />
       </div>
     </div>
   );
