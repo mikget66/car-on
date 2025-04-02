@@ -3,9 +3,9 @@ import prisma from "@/lib/prisma";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const userId = params.id; // the id of the user for which we want liked cars
+  const userId = context.params.id; // the id of the user for which we want liked cars
   
   try {
     // Filter for cars where the bookmarked JSON field contains the userId.
@@ -24,7 +24,7 @@ export async function GET(
           include: {
             tyres: true,
             driven: true,
-            imprerfections: true, // Note: "imprerfections" seems like a typo; should it be "imperfections"?
+            imprerfections: true, // Note: likely a typo; should be "imperfections"
             repaintedParts: true,
             perfectParts: true,
           },
