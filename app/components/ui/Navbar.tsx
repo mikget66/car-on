@@ -11,7 +11,7 @@ import { useCallback } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { FaUserMinus } from "react-icons/fa";
 import Image from "next/image";
-
+import Tooltip from "./Tooltip";
 
 const links = [
   { name: "Home", href: "/" },
@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear overflow-hidden ${
+      className={`fixed top-0 right-0 left-0 flex items-center rounded-lg md:rounded-2xl  switch-colors z-50 transition-scale duration-500  ease-linear  ${
         pathName === "/" || pathName === "/blogs"
           ? "m-3"
           : "bg-background sticky rounded-none shadow-lg p-3 mb"
@@ -48,7 +48,7 @@ const Navbar = () => {
             className="logo text-3xl md:text-5xl font-semibold cursor-pointer"
           >
             Car
-            <span className='font-caveatRegular text-brandColor'>On.</span>
+            <span className="font-caveatRegular text-brandColor">On.</span>
           </Link>
 
           <div>
@@ -80,15 +80,16 @@ const Navbar = () => {
                     }
                     loading="lazy"
                     alt={`${user?.name} profile image`}
-                    width={100} // adjust width as needed
-                    height={100} // adjust height as needed
+                    width={100}
+                    height={100}
                     className="rounded-full object-cover"
                   />
                 </Link>
-
-                <button onClick={logout}>
-                  <FaUserMinus />
-                </button>
+                <Tooltip text="logout">
+                  <button onClick={logout}>
+                    <FaUserMinus />
+                  </button>
+                </Tooltip>
               </>
             ) : (
               // If not logged in, display the signin icon

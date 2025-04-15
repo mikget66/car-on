@@ -4,42 +4,7 @@
 @plugin "@tailwindcss/typography";
 
 
-@font-face {
-  font-family: 'Caveat';
-  src: url('/fonts/Caveat-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Caveat';
-  src: url('/fonts/Caveat-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Caveat';
-  src: url('/fonts/Caveat-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Caveat';
-  src: url('/fonts/Caveat-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-.caveat-font {
-  font-family: 'Caveat', sans-serif;
-}
 
 /*------------------------------------------------
   Global Styles
@@ -47,6 +12,21 @@
 * {
   input {
     background: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scroll-container {
+    overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  }
+  
+  .scroll-item {
+    scroll-snap-align: center;
   }
 }
 

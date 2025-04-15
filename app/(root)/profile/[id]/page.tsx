@@ -16,7 +16,7 @@ const Page = () => {
   console.log(user);
 
   return (
-    <div className="Container grid grid-cols-[40%_60%] pt-10">
+    <div className="Container grid gap-5 md:gap-0 md:grid-cols-[40%_60%] py-10">
       <div className="flex flex-col items-center  gap-2">
         <div className="rounded-full overflow-hidden">
           <Image
@@ -35,13 +35,11 @@ const Page = () => {
         </div>
       </div>
       <div>
-        <div className="">
-          <button onClick={()=> setTap("liked")}>liked</button>
-          <button onClick={()=> setTap("posted")}>posted</button>
+        <div className="flex gap-2">
+          <button className="" onClick={() => setTap("liked")}>liked</button>
+          <button onClick={() => setTap("posted")}>posted</button>
         </div>
-        {tap === "liked"?(
-          <LikedCars/>
-        ):(<PostedCars/>)}
+        {tap === "liked" ? <LikedCars /> : <PostedCars />}
       </div>
     </div>
   );

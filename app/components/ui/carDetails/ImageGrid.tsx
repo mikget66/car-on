@@ -23,7 +23,6 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
   return (
     <div className="rounded-xl overflow-hidden grid grid-cols-3 grid-rows-2 gap-2 h-[210px] sm:h-[330px] md:h-[350px] xl:h-[480px] 2xl:h-[540px] relative">
       <div className="row-span-full col-span-full md:row-span-2 md:col-span-2 relative">
-        {/* Wrap Image in a div for the onClick event */}
         <div className="w-full h-full cursor-pointer" onClick={() => openImageViewer(0)}>
           <Image
             src={images[0]}

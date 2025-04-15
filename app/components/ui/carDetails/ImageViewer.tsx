@@ -16,12 +16,6 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  // For touch swipe
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const minSwipeDistance = 50;
-
-  // Show the dialog and disable background scroll
   useEffect(() => {
     dialogRef.current?.showModal();
     document.body.style.overflow = "hidden";
@@ -30,39 +24,12 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
     };
   }, []);
 
-  // Update the currentIndex if initialIndex changes
-  useEffect(() => {
-    setCurrentIndex(initialIndex);
-  }, [initialIndex]);
-
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  // Touch event handlers
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (touchStart !== null && touchEnd !== null) {
-      const distance = touchStart - touchEnd;
-      if (distance > minSwipeDistance) {
-        handleNext();
-      } else if (distance < -minSwipeDistance) {
-        handlePrev();
-      }
-    }
-    setTouchStart(null);
-    setTouchEnd(null);
   };
 
   const handleDialogClick = (e: React.MouseEvent<HTMLDialogElement>) => {
@@ -84,16 +51,16 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
         onCancel={handleClose}
         className="w-full max-w-4xl p-0 border-0 bg-transparent"
       >
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-scroll scroll-container no-scrollbar">
           <div
-            className="flex transition-transform duration-300 ease-in-out"
+            className="flex transition-transform duration-300 ease-in-out "
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
           >
             {images.map((src, i) => (
-              <div key={i} className="relative w-full h-[90vh] flex-shrink-0">
+              <div
+                key={i}
+                className="relative w-full h-[90vh] flex-shrink-0 scroll-item"
+              >
                 <Image
                   src={src}
                   alt={`Image ${i + 1}`}
